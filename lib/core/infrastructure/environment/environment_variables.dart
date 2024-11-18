@@ -7,5 +7,5 @@ abstract interface class EnvironmentVariables {
 @LazySingleton(as: EnvironmentVariables)
 class EnvironmentVariablesImpl implements EnvironmentVariables {
   @override
-  String get appUrl => const String.fromEnvironment('appServerUrl');
+  String get appUrl => const String.fromEnvironment('appUrl');
 }

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kindred_mobile/common/constants/constants.dart';
 import 'package:kindred_mobile/features/products/data/models/product_list_model.dart';
 import 'package:kindred_mobile/features/products/data/models/product_model.dart';
 import 'package:retrofit/retrofit.dart';
@@ -8,7 +7,7 @@ import 'package:retrofit/retrofit.dart';
 part 'product_api_service.g.dart';
 
 @lazySingleton
-@RestApi(baseUrl: apiUrl)
+@RestApi()
 abstract class ProductsApiService {
   @factoryMethod
   factory ProductsApiService(Dio dio) = _ProductsApiService;
