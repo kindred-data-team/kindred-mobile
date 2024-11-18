@@ -48,6 +48,32 @@ The project is structured based on the Clean Architecture principles and from @R
  │        └─ widgets
  └─ main.dart
 ```
+# Environment Variables
+
+Add the environment variables on the `.secrets` folder.
+
+|Environment|File|
+|---|---|
+|Development|dev.json|
+|Staging|stg.json|
+|Production|prod.json|
+
+On most cases `development` and `staging` uses the same values.
+
+# Running app on different environment
+
+|Android | |
+|-|-|
+|Installing on device (release mode)|rps launch dev|
+||rps launch stg|
+||rps launch prod|
+|Generating an APK|rps build apk dev|
+||rps build apk stg|
+||rps build apk prod|
+|Generating an AAB file|rps build aab dev|
+||rps build aab stg|
+||rps build aab prod|
+
 
 ## Project Initial Setup 
 - For MacOS: Make sure that you have atleast MacOS 13 Ventura or later to run this project.
