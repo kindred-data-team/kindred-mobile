@@ -2,13 +2,33 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run current device",
+            "name": "Run DEV",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "args": [
                 "--dart-define-from-file",
                 ".secrets/dev.json",
+            ],
+        },
+        {
+            "name": "Run STG",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                ".secrets/stg.json",
+            ],
+        },
+        {
+            "name": "Run PROD",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                ".secrets/prod.json",
             ],
         },
     ],
