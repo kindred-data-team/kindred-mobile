@@ -1,7 +1,5 @@
 # kindred_mobile
 
-A new Flutter project.
-
 
 # Architecture Overview
 
