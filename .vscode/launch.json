@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run current device",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                ".secrets/dev.json",
+            ],
+        },
+    ],
+    "inputs": [
+        {
+            "id": "appEnvironment",
+            "type": "command",
+            "command": "extension.commandvariable.file.content",
+            "args": {
+                "fileName": "${pickFile:config}",
+                "json": "content.appEnvironment",
+                "pickFile": {
+                    "config": {
+                        "description": "Select the environment to debug",
+                        "include": ".secrets/*.json",
+                        "keyRemember": "secretsFile"
+                    }
+                }
+            }
+        }
+    ],
+}

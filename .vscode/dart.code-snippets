@@ -1,0 +1,96 @@
+{
+    "Creates an injectable dependency": {
+        "prefix": "dep",
+        "body": [
+            "import 'package:injectable/injectable.dart';",
+            "",
+            "abstract interface class ${name} {}",
+            "",
+            "@LazySingleton(as: ${name})",
+            "class ${name}Impl implements ${name} {}"
+        ],
+        "description": "Creates an injectable dependency"
+    },
+    "Creates a JSON class": {
+        "prefix": "jsonC",
+        "body": [
+            "part '${TM_FILENAME_BASE}.g.dart';",
+            "",
+            "@immutable",
+            "@JsonSerializable()",
+            "class ${name} extends JsonSerializableObject {",
+            "  const ${name}();",
+            "",
+            "  factory ${name}.fromJson(Map<String, dynamic> json) => _$${name}FromJson(json);",
+            "",
+            "  @override",
+            "  Map<String, dynamic> toJson() => _$${name}ToJson(this);",
+            "}"
+        ],
+        "description": "Creates a JSON class"
+    },
+    "Creates a mapper class": {
+        "prefix": "mapper",
+        "body": [
+          "import 'package:auto_mappr_annotation/auto_mappr_annotation.dart';",
+          "import 'package:injectable/injectable.dart';",
+          "import 'package:jade_gaming/core/domain/mapping/object_mapper.dart';",
+          "import '${TM_FILENAME_BASE}.auto_mappr.dart';",
+          "",
+          "abstract interface class ${Name}Mapper implements ObjectMapper {}",
+          "",
+          "@AutoMappr(<MapType<Object, Object>>[",
+          "  MapType<${Name}Source, ${Name}Destination>(),",
+          "])",
+          "@LazySingleton(as: ${Name}Mapper)",
+          "class ${Name}MapperImpl extends $${Name}MapperImpl implements ${Name}Mapper {",
+          "  @override",
+          "  T mapObject<S, T>(S? object) => convert(object);",
+          "",
+          "  @override",
+          "  Iterable<T> mapObjects<S, T>(Iterable<S> objects) => convertIterable(objects);",
+          "}",
+          ""
+        ],
+        "description": "Creates a mapper class"
+    },
+    "Creates a retrofit API": {
+        "prefix": "api",
+        "body": [
+            "import 'package:retrofit/retrofit.dart';",
+            "import 'package:injectable/injectable.dart';",
+            "import 'package:jade_gaming/core/data/api/dio_provider.dart';",
+            "",
+            "part '${TM_FILENAME_BASE}.g.dart';",
+            "",
+            "@lazySingleton",
+            "@RestApi()",
+            "abstract interface class ${ApiName}Api {",
+            "  @factoryMethod",
+            "  factory ${ApiName}Api(DioProvider dioProvider) => _${ApiName}Api(dioProvider.create<${ApiName}Api>());",
+            "}"
+        ],
+        "description": "Creates an retrofit API"
+    },
+    "Creates a base view": {
+        "prefix": "bv", 
+        "body": [
+           "import 'package:flutter/material.dart';",
+           "import 'package:jade_gaming/core/presentation/views/view_mixin.dart';",
+           "",       
+           "class ${name}View extends StatelessWidget with ViewMixin<${name}Bloc> {",
+           "const ${name}View({super.key});",
+           "",
+           "@override",
+           "Widget buildMobile(BuildContext context) {",
+           "   return ${name}ViewMobile();",
+           "}",
+           "",
+           "@override",
+           "Widget buildWeb(BuildContext context) {",
+           "   return ${name}ViewWeb();",
+           "}",
+           "}",
+        ]
+    }
+}
