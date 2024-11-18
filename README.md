@@ -85,7 +85,7 @@ On most cases `development` and `staging` uses the same values.
 - Install all recommended extensions that will pop up or press (`command` + `shift` + x) and install it manually
 - Create `.secrets` folder inside `project` folder and place the json files. Follow the instruction here to get the json [Environment Variables](https://ekcms.atlassian.net/l/cp/VAG0NLiq)
 - After the setup run the following command in the terminal:
-  `fvm flutter pub get`, `` and `fvm dart run build_runner build --delete-conflicting-outputs`
+  `rps pub-get`, `` and `rps gen`
  
 ## Code Analysis 
 
@@ -118,6 +118,6 @@ We use [intl_utils](https://github.com/localizely/intl_utils) for binding the tr
 To generate the translations run this command:
 
 ```sh
-fvm dart run intl_utils:generate
-
+rps gen-intl
+``` 
 
