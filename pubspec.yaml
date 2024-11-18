@@ -5,6 +5,29 @@ version: 1.0.0+1
 environment:
   sdk: ^3.5.3
 
+scripts:
+  clean: fvm flutter clean
+  pub-get: fvm flutter pub get
+  version:
+    install: fvm install 3.24.3
+    set: fvm use 3.24.3
+  gen-intl: fvm dart run intl_utils:generate
+  gen: fvm dart run build_runner build --delete-conflicting-outputs  
+  launch:
+    dev: fvm flutter run -d chrome --dart-define-from-file=".secrets/dev.json"
+    stg: fvm flutter run -d chrome --dart-define-from-file=".secrets/stg.json"
+    prod: fvm flutter run -d chrome --dart-define-from-file=".secrets/prod.json"
+  build: 
+    apk:
+      dev: fvm flutter build apk --release --dart-define-from-file=".secrets/dev.json"
+      stg: fvm flutter build apk --release --dart-define-from-file=".secrets/stg.json"
+      prod: fvm flutter build apk --release --dart-define-from-file=".secrets/stg.json"
+    aab: 
+      dev: fvm flutter build appbundle --dart-define-from-file=".secrets/dev.json"
+      stg: fvm flutter build appbundle --dart-define-from-file=".secrets/stg.json"
+      prod: fvm flutter build appbundle --dart-define-from-file=".secrets/prod.json"
+  
+      
 dependencies:
   flutter:
     sdk: flutter
