@@ -3,50 +3,45 @@
 
 # Architecture Overview
 
-The project is structured based on the Clean Architecture principles and from @ResoCoder's [Flutter TDD Clean Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/) explanation. It provides a clear and modular structure for building applications by dividing them into distinct layers.
+The project is structured based on the MVC (Model View Controller) pattern and from @Faiz_Rhm's [Understanding MVC Architecture in Flutter](https://medium.com/@Faiz_Rhm/understanding-mvc-architecture-in-flutter-a-comprehensive-guide-with-examples-5d1a372c7eaf) explanation. It's a design pattern that separates an application into three components, allowing for better organization and modularization of code.
 
 
 # PROJECT STRUCTURE
 ```
- lib
- ├─ config
- │  ├─ routing
- │  ├─ theme
- │  ├─ localization
- │  └─ exceptions
- ├─ core
- │  ├─ constants
- │  ├─ resources
- │  ├─ usecases
- │  └─ utils
- ├─ features
- │  ├─feature1
- │  │  ├─ data
- │  │  │  ├─ data_sources
- │  │  │  ├─ models
- │  │  │  └─ repository
- │  │  ├─ domain
- │  │  │  ├─ entities
- │  │  │  ├─ repository
- │  │  │  └─ usecases
- │  │  └─ presentation
- │  │     ├─ bloc
- │  │     ├─ pages/views
- │  │     └─ widgets
- │  └─feature2
- │     ├─ data
- │     │  ├─ data_sources
- │     │  ├─ models
- │     │  └─ repository
- │     ├─ domain
- │     │  ├─ entities
- │     │  ├─ repository
- │     │  └─ usecases
- │     └─ presentation
- │        ├─ bloc
- │        ├─ pages/views
- │        └─ widgets
- └─ main.dart
+kindred_mobile
+
+├─ lib
+│  ├─ common
+│  │  ├─ constants 
+│  │  ├─ exceptions
+│  │  ├─ resources
+│  │  ├─ theme
+│  │  ├─ translations
+│  │  ├─ utils
+│  │  └─ validators
+│  ├─ core
+│  │  ├─ data
+│  │  │  ├─ api
+│  │  │  └─ resources
+│  │  ├─ infrastructure
+│  │  │  ├─ environment
+│  │  │  ├─ platform
+│  │  │  └─ storage
+│  │  └─ presentation
+│  │     ├─ navigation
+│  │     ├─ views
+│  │     └─ widgets
+│  ├─ features
+│  │  └─ feature1
+│  │     ├─ bloc
+│  │     ├─ data
+│  │     │  ├─ models
+│  │     │  ├─ repository
+│  │     │  └─ service
+│  │     └─ presentation
+│  │        ├─ pages
+│  │        └─ widgets
+│  └─ main.dart
 ```
 # Environment Variables
 
