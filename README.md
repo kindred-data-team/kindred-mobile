@@ -80,31 +80,8 @@ On most cases `development` and `staging` uses the same values.
 - Install all recommended extensions that will pop up or press (`command` + `shift` + x) and install it manually
 - Create `.secrets` folder inside `project` folder and place the json files. Follow the instruction here to get the json [Environment Variables](https://ekcms.atlassian.net/l/cp/VAG0NLiq)
 - After the setup run the following command in the terminal:
-  `rps pub-get`, `` and `rps gen`
+  `rps pub-get`
  
-## Code Analysis 
-
-We use [Dart Code Linter](https://github.com/bancolombia/dart-code-linter) to identify code smells in the project.
-
-To run the command: 
-
-Command for code metrics, rules and anti-patterns violations:
-
-```sh
-fvm dart run dart_code_linter:metrics analyze lib
-```
-
-Command for checking unnecessary nullable parameters:
-
-```sh
-fvm dart run dart_code_linter:metrics check-unnecessary-nullable lib
-```
-
-Command for checking unused file in the project:
-
-```sh
-fvm dart run dart_code_linter:metrics check-unused-files lib
-```
 
 ## Translations
 
