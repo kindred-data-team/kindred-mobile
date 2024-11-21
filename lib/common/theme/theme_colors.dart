@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract final class ThemeColors {
+abstract final class AppColors {
   static const Color background = Color.fromARGB(255, 46, 48, 63);
   static const Color textColor = Colors.white;
   static const Color primary = Color.fromARGB(255, 63, 63, 73);

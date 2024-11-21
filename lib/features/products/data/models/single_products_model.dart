@@ -1,4 +1,4 @@
-class ProductsListModel {
+class SingleProductsModel {
   int? id;
   String? title;
   String? description;
@@ -22,7 +22,7 @@ class ProductsListModel {
   List<String>? images;
   String? thumbnail;
 
-  ProductsListModel(
+  SingleProductsModel(
       {this.id,
       this.title,
       this.description,
@@ -46,7 +46,7 @@ class ProductsListModel {
       this.images,
       this.thumbnail});
 
-  ProductsListModel.fromJson(Map<String, dynamic> json) {
+  SingleProductsModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     description = json['description'];

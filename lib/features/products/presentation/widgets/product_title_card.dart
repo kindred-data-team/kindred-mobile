@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/features/products/domain/entities/product_entity.dart';
+import 'package:kindred_mobile/features/products/data/models/single_products_model.dart';
 
 class ProductTitleCard extends StatefulWidget {
-  final ProductEntity? product;
+  final SingleProductsModel? product;
   const ProductTitleCard({super.key, required this.product});
 
   @override
@@ -17,7 +17,7 @@ class _ProductTitleCardState extends State<ProductTitleCard> {
         height: 150,
         width: double.infinity,
         child: Card(
-          color: ThemeColors.primary,
+          color: AppColors.primary,
           elevation: 10,
           shadowColor: Colors.black,
           semanticContainer: true,
@@ -37,18 +37,12 @@ class _ProductTitleCardState extends State<ProductTitleCard> {
                       width: 230,
                       child: Text(
                         widget.product?.title ?? '',
-                        style: const TextStyle(
-                            color: ThemeColors.textColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600),
+                        style: const TextStyle(color: AppColors.textColor, fontSize: 20, fontWeight: FontWeight.w600),
                       ),
                     ),
                     Text(
                       '\$${widget.product?.price.toString() ?? ''}',
-                      style: const TextStyle(
-                          color: ThemeColors.secondary,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600),
+                      style: const TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -60,18 +54,12 @@ class _ProductTitleCardState extends State<ProductTitleCard> {
                       width: 200,
                       child: Text(
                         "Brand:${widget.product?.brand ?? ''}",
-                        style: const TextStyle(
-                            color: ThemeColors.textColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
+                        style: const TextStyle(color: AppColors.textColor, fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                     ),
                     Text(
                       '${widget.product?.stock ?? ''} in stock',
-                      style: const TextStyle(
-                          color: ThemeColors.secondary,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600),
+                      style: const TextStyle(color: AppColors.secondary, fontSize: 14, fontWeight: FontWeight.w600),
                     ),
                   ],
                 )

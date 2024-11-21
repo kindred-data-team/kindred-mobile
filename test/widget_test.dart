@@ -7,14 +7,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kindred_mobile/core/presentation/navigation/root_go_router.dart';
+import 'package:kindred_mobile/core/presentation/navigation/app_router.dart';
 import 'package:kindred_mobile/features/app/presentation/views/app.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(App(
-      router: RootGoRouter.goRouter,
+      router: AppRouter.goRouter,
     ));
 
     // Verify that our counter starts at 0.

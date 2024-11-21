@@ -21,13 +21,11 @@ class LoggingInterceptor extends Interceptor {
   }
 
   @override
-  void onResponse(
-      Response<dynamic> response, ResponseInterceptorHandler handler) {
+  void onResponse(Response<dynamic> response, ResponseInterceptorHandler handler) {
     final String tag = '[REQ#${shortHash(response.requestOptions)}]';
 
     if (response.statusCode != null && response.statusMessage != null) {
-      _logger
-          .d('$tag Success: ${response.statusCode} ${response.statusMessage}');
+      _logger.d('$tag Success: ${response.statusCode} ${response.statusMessage}');
     }
 
     _logBody(tag, response.data);
@@ -37,11 +35,9 @@ class LoggingInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    if (err.response?.statusCode != null &&
-        err.response?.statusMessage != null) {
+    if (err.response?.statusCode != null && err.response?.statusMessage != null) {
       final String tag = '[RES#${shortHash(err.requestOptions)}]';
-      _logger.e(
-          '$tag Failed: ${err.response?.statusCode} ${err.response?.statusMessage}');
+      _logger.e('$tag Failed: ${err.response?.statusCode} ${err.response?.statusMessage}');
     }
 
     super.onError(err, handler);

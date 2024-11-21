@@ -1,9 +1,3 @@
-// abstract final class Routes {
-
-//   static const String dashboard = '/';
-//   static const String onboarding = '/onboarding';
-// }
-
 enum Routes {
   home(
     path: '/',

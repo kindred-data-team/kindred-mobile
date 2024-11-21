@@ -1,30 +1,30 @@
 import 'dart:io';
 
-import 'package:injectable/injectable.dart';
 import 'package:kindred_mobile/common/exceptions/api_exception.dart';
 import 'package:kindred_mobile/core/data/resources/data_state.dart';
-import 'package:kindred_mobile/features/products/data/data_sources/remote/product_api_service.dart';
-import 'package:kindred_mobile/features/products/data/models/product_model.dart';
-import 'package:kindred_mobile/features/products/domain/entities/product_list_entity.dart';
-import 'package:kindred_mobile/features/products/domain/repository/product_repository.dart';
+import 'package:kindred_mobile/features/products/data/models/product_list_model.dart';
+import 'package:kindred_mobile/features/products/data/models/single_products_model.dart';
+import 'package:kindred_mobile/features/products/data/service/products_service.dart';
 
-@LazySingleton(as: ProductRepository)
-class ProductRepositoryImpl implements ProductRepository {
-  final ProductsApiService _productsApiService;
+class ProductRepository {
+  final _provider = ProductsService();
 
-  ProductRepositoryImpl(this._productsApiService);
-
-  @override
-  Future<DataState<ProductModel>> getSingleProduct(int id) async {
+  Future<DataState<List<ProductsListModel>>> getProductList(
+    int limit,
+    int skip,
+  ) async {
     try {
-      final httpResponse = await _productsApiService.getSingleProduct(
-        id: id,
-      );
-      if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponse.data);
+      final response = await _provider.getAllProducts(limit, skip);
+
+      if (response.statusCode == HttpStatus.ok) {
+        List<ProductsListModel> res = (response.data['products'] as List)
+            .map((e) => ProductsListModel.fromJson(e as Map<String, dynamic>))
+            .toList();
+
+        return DataSuccess(res);
       } else {
         return DataFailed(ApiException(
-          message: httpResponse.response.statusMessage ?? '',
+          message: response.statusMessage ?? '',
         ));
       }
     } on ApiException catch (e) {
@@ -32,23 +32,18 @@ class ProductRepositoryImpl implements ProductRepository {
     }
   }
 
-  @override
-  Future<DataState<List<ProductListEntity>>> getProductList(
-    int limit,
-    int skip,
+  Future<DataState<SingleProductsModel>> getSingleProduct(
+    int id,
   ) async {
     try {
-      final httpResponse = await _productsApiService.getProductsList(
-        limit: limit,
-        skip: skip,
-        select: '''title,price,thumbnail,stock,discountPercentage''',
-      );
+      final response = await _provider.getSingleProduct(id);
+      if (response.statusCode == HttpStatus.ok) {
+        SingleProductsModel res = SingleProductsModel.fromJson(response.data as Map<String, dynamic>);
 
-      if (httpResponse.response.statusCode == HttpStatus.ok) {
-        return DataSuccess(httpResponse.data);
+        return DataSuccess(res);
       } else {
         return DataFailed(ApiException(
-          message: httpResponse.response.statusMessage ?? '',
+          message: response.statusMessage ?? '',
         ));
       }
     } on ApiException catch (e) {

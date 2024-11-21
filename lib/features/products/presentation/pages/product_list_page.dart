@@ -1,25 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kindred_mobile/common/constants/routes.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/core/dependency_injection.dart';
-import 'package:kindred_mobile/features/products/presentation/bloc/product_list/product_list_bloc.dart';
-import 'package:kindred_mobile/features/products/presentation/bloc/product_list/product_list_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kindred_mobile/features/products/presentation/bloc/product_list/product_list_state.dart';
+import 'package:kindred_mobile/common/constants/routes.dart';
+import 'package:kindred_mobile/common/theme/theme_colors.dart';
+import 'package:kindred_mobile/features/products/bloc/product_list/product_list_bloc.dart';
+import 'package:kindred_mobile/features/products/bloc/product_list/product_list_event.dart';
+import 'package:kindred_mobile/features/products/bloc/product_list/product_list_state.dart';
 import 'package:kindred_mobile/features/products/presentation/widgets/product_list_card.dart';
 
-class ProductListView extends StatefulWidget {
-  const ProductListView({super.key});
+class ProductListPage extends StatefulWidget {
+  const ProductListPage({super.key});
 
   @override
-  State<ProductListView> createState() => _ProductListViewState();
+  State<ProductListPage> createState() => _ProductListViewState();
 }
 
-class _ProductListViewState extends State<ProductListView> {
-  final ProductListBloc _productsListBloc =
-      DependencyInjection.instance<ProductListBloc>();
+class _ProductListViewState extends State<ProductListPage> {
+  final ProductListBloc _productsListBloc = ProductListBloc();
   late int currentPage;
   int itemsPerPage = 10;
   int skip = 1;
@@ -88,14 +86,13 @@ class _ProductListViewState extends State<ProductListView> {
                         return GestureDetector(
                           onTap: () {
                             context.go(
-                              "${Routes.productViewPage.path}/${state.productList?[index].id}",
+                              "${Routes.productViewPage.path}/${state.products![index].id}",
                             );
                           },
-                          child: ProductListCard(
-                              product: state.productList![index]),
+                          child: ProductListCard(product: state.products![index]),
                         );
                       },
-                      itemCount: state.productList!.length),
+                      itemCount: state.products!.length),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -108,16 +105,13 @@ class _ProductListViewState extends State<ProductListView> {
                         },
                         child: const Icon(
                           Icons.arrow_back_ios_rounded,
-                          color: ThemeColors.secondary,
+                          color: AppColors.secondary,
                         ),
                       ),
                       const SizedBox(width: 16),
                       Text(
                         '$currentPage',
-                        style: const TextStyle(
-                            color: ThemeColors.secondary,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                        style: const TextStyle(color: AppColors.secondary, fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(width: 16),
                       ElevatedButton(
@@ -126,7 +120,7 @@ class _ProductListViewState extends State<ProductListView> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios_rounded,
-                          color: ThemeColors.secondary,
+                          color: AppColors.secondary,
                         ),
                       ),
                     ],

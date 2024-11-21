@@ -1,16 +1,16 @@
 import 'package:go_router/go_router.dart';
 import 'package:kindred_mobile/common/constants/routes.dart';
-import 'package:kindred_mobile/features/products/presentation/pages/home/product_list_view.dart';
-import 'package:kindred_mobile/features/products/presentation/pages/product_view/single_product_page.dart';
+import 'package:kindred_mobile/features/products/presentation/pages/product_list_page.dart';
+import 'package:kindred_mobile/features/products/presentation/pages/singe_product_page.dart';
 
-class RootGoRouter {
-  RootGoRouter();
+class AppRouter {
+  AppRouter();
   static final goRouter = GoRouter(initialLocation: Routes.home.path, routes: [
     GoRoute(
       name: Routes.home.name,
       path: Routes.home.path,
       pageBuilder: (context, state) => const NoTransitionPage(
-        child: ProductListView(),
+        child: ProductListPage(),
       ),
     ),
     GoRoute(

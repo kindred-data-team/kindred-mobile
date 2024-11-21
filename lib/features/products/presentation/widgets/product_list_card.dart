@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/features/products/domain/entities/product_list_entity.dart';
+import 'package:kindred_mobile/features/products/data/models/product_list_model.dart';
 
 class ProductListCard extends StatelessWidget {
-  final ProductListEntity product;
+  final ProductsListModel product;
   const ProductListCard({super.key, required this.product});
 
   @override
@@ -22,15 +22,14 @@ class ProductListCard extends StatelessWidget {
               ),
               elevation: 10,
               shadowColor: Colors.black,
-              color: ThemeColors.primary,
+              color: AppColors.primary,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   //Image
                   Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    decoration:
+                        const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20))),
                     height: double.infinity,
                     width: 120,
                     child: Center(
@@ -54,10 +53,8 @@ class ProductListCard extends StatelessWidget {
                         children: [
                           Text(
                             product.title ?? '',
-                            style: const TextStyle(
-                                color: ThemeColors.textColor,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
+                            style:
+                                const TextStyle(color: AppColors.textColor, fontSize: 18, fontWeight: FontWeight.w600),
                           ),
                           const Spacer(),
                           Row(
@@ -65,17 +62,13 @@ class ProductListCard extends StatelessWidget {
                               Text(
                                 '\$${product.price?.toString() ?? ''}',
                                 style: const TextStyle(
-                                    color: ThemeColors.secondary,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600),
+                                    color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                               ),
                               const Spacer(),
                               Text(
                                 'Stock:${product.stock?.toString() ?? ''}',
                                 style: const TextStyle(
-                                    color: ThemeColors.textColor,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600),
+                                    color: AppColors.textColor, fontSize: 12, fontWeight: FontWeight.w600),
                               ),
                             ],
                           ),
@@ -93,14 +86,11 @@ class ProductListCard extends StatelessWidget {
               child: Container(
                 width: 65,
                 height: 20,
-                color: ThemeColors.secondary,
+                color: AppColors.secondary,
                 child: Center(
                   child: Text(
                     '${product.discountPercentage}% OFF',
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
                   ),
                 ),
               )),

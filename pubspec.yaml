@@ -12,7 +12,6 @@ scripts:
     install: fvm install 3.24.3
     set: fvm use 3.24.3
   gen-intl: fvm dart run intl_utils:generate
-  gen: fvm dart run build_runner build --delete-conflicting-outputs  
   launch:
     dev: fvm flutter run -d chrome --dart-define-from-file=".secrets/dev.json"
     stg: fvm flutter run -d chrome --dart-define-from-file=".secrets/stg.json"
@@ -31,39 +30,28 @@ scripts:
 dependencies:
   flutter:
     sdk: flutter
-  auto_mappr_annotation: ^2.2.0
   bloc: ^8.1.4
+  equatable: ^2.0.5
   flutter_bloc: ^8.1.6
   dio: ^5.7.0
-  equatable: ^2.0.5
-  get_it: ^7.6.4
-  go_router: ^14.6.0
-  injectable: ^2.5.0
   intl: ^0.19.0
-  json_annotation: ^4.9.0
-  logger: ^2.4.0
-  retrofit: ^4.4.1
-  local_auth: ^2.3.0
   flutter_secure_storage: ^9.2.2
   shared_preferences: ^2.3.3
-  uuid: ^4.5.1
-  meta: ^1.15.0
- 
+  go_router: ^14.6.0
+  retrofit: ^4.4.1
+  logger: ^2.4.0
+  json_annotation: ^4.9.0
   cupertino_icons: ^1.0.8
  
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  analyzer: ^6.5.0
-  auto_mappr: ^2.5.0
-  build_runner: ^2.4.13
-  flutter_gen_runner: ^5.8.0
-  injectable_generator: ^2.6.2
   intl_utils: ^2.8.7
   json_serializable: ^6.8.0
+  flutter_gen_runner: ^5.8.0
+  build_runner: ^2.4.13
   retrofit_generator: ^9.1.5
   flutter_lints: ^4.0.0
-
 
 flutter:
   uses-material-design: true

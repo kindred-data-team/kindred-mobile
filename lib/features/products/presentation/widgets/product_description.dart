@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/features/products/domain/entities/product_entity.dart';
+import 'package:kindred_mobile/features/products/data/models/single_products_model.dart';
 
 class ProductDescriptionCard extends StatelessWidget {
-  final ProductEntity? product;
+  final SingleProductsModel? product;
   const ProductDescriptionCard({super.key, this.product});
 
   @override
@@ -12,7 +12,7 @@ class ProductDescriptionCard extends StatelessWidget {
         height: 470,
         width: double.infinity,
         child: Card(
-          color: ThemeColors.primary,
+          color: AppColors.primary,
           elevation: 10,
           shadowColor: Colors.black,
           semanticContainer: true,
@@ -26,10 +26,7 @@ class ProductDescriptionCard extends StatelessWidget {
               children: [
                 const Text(
                   'Item Description',
-                  style: TextStyle(
-                      color: ThemeColors.secondary,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 10,
@@ -37,10 +34,7 @@ class ProductDescriptionCard extends StatelessWidget {
                 //Desc
                 const Text(
                   '• Description',
-                  style: TextStyle(
-                      color: ThemeColors.secondary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
@@ -59,20 +53,14 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Category',
-                  style: TextStyle(
-                      color: ThemeColors.secondary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
                   ' -${product?.category ?? ''}',
-                  style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
                 ),
                 //dimensions
                 const SizedBox(
@@ -80,20 +68,14 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Dimensions (mm)',
-                  style: TextStyle(
-                      color: ThemeColors.secondary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
-                  ' -${product?.dimensions?['width']}x${product?.dimensions?['height']}x${product?.dimensions?['depth']}',
-                  style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
+                  ' -${product?.dimensions?.width}x${product?.dimensions?.height}x${product?.dimensions?.depth}',
+                  style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
                 ),
                 //warranty info
                 const SizedBox(
@@ -101,20 +83,14 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Warranty Information',
-                  style: TextStyle(
-                      color: ThemeColors.secondary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
                   ' -${product?.warrantyInformation ?? ''}',
-                  style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
                 ),
                 //warranty info
                 const SizedBox(
@@ -122,20 +98,14 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Shipping Information',
-                  style: TextStyle(
-                      color: ThemeColors.secondary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
-                  ' -${product?.shippingInfomation ?? ''}',
-                  style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
+                  ' -${product?.shippingInformation ?? ''}',
+                  style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
                 ),
                 //warranty info
                 const SizedBox(
@@ -143,20 +113,14 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Return Policy',
-                  style: TextStyle(
-                      color: ThemeColors.secondary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
                   ' -${product?.returnPolicy ?? ''}',
-                  style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
                 ),
               ],
             ),

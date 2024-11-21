@@ -17,15 +17,13 @@ class LeadingButtonState extends State<LeadingButton> {
         context.pop();
       },
       child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: ThemeColors.secondary),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: AppColors.secondary),
         child: const Padding(
           padding: EdgeInsets.all(5.0),
           child: Icon(
             size: 20,
             Icons.arrow_back_ios_new_sharp,
-            color: ThemeColors.primary,
+            color: AppColors.primary,
           ),
         ),
       ),
