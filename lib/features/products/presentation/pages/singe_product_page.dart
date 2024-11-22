@@ -92,7 +92,7 @@ class _SingleProductPageState extends State<SingleProductPage> {
                           child: Container(
                             width: 80,
                             height: 30,
-                            color: AppColors.secondary,
+                            color: AppColors.secondaryColorOne,
                             child: Center(
                               child: Text(
                                 '${state.product?.discountPercentage}% OFF',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kindred_mobile/common/constants/image_constants.dart';
+import 'package:kindred_mobile/common/constants/assets.dart';
 import 'package:kindred_mobile/common/theme/theme_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -20,7 +20,7 @@ class ScreenOne extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          AppImage.onboardingOne,
+          Assets.onboardingOne,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.fill,
         ),
@@ -33,7 +33,7 @@ class ScreenOne extends StatelessWidget {
             children: [
               Align(
                   alignment: Alignment.topLeft,
-                  child: SvgPicture.asset(AppImage.petalsLeft)),
+                  child: SvgPicture.asset(Assets.petalsLeft)),
               Positioned(
                 top: 30,
                 left: 0,

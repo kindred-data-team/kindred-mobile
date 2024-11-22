@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:kindred_mobile/common/constants/image_constants.dart';
+import 'package:kindred_mobile/common/constants/assets.dart';
 import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/features/onboarding/presentation/widgets/custom_icon_button.dart';
+import 'package:kindred_mobile/features/auth/widgets/custom_icon_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -21,7 +21,7 @@ class AuthScreen extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          AppImage.authOnboarding,
+          Assets.authOnboarding,
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.fill,
         ),
@@ -29,7 +29,6 @@ class AuthScreen extends StatelessWidget {
         Text(
           "Continue with",
           style: TextStyle(
-            fontFamily: "GTWalsheimPro",
             color: Colors.black,
             fontSize: 14.px,
           ),
@@ -38,19 +37,19 @@ class AuthScreen extends StatelessWidget {
         // Custom buttons
         CustomIconButton(
           text: "Google",
-          logo: Image.asset(AppImage.googleLogo),
+          logo: Image.asset(Assets.googleLogo),
           onPressed: () {},
         ),
         const SizedBox(height: 10),
         CustomIconButton(
           text: "Apple",
-          logo: Image.asset(AppImage.appleLogo),
+          logo: Image.asset(Assets.appleLogo),
           onPressed: () {},
         ),
         const SizedBox(height: 10),
         CustomIconButton(
           text: "Email",
-          logo: Image.asset(AppImage.emailLogo),
+          logo: Image.asset(Assets.emailLogo),
           onPressed: () {},
         ),
         Padding(
@@ -59,7 +58,6 @@ class AuthScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(
               style: TextStyle(
-                fontFamily: "GTWalsheimPro",
                 fontSize: 13.px,
               ),
               children: <TextSpan>[

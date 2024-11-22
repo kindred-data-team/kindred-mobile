@@ -47,8 +47,8 @@ class CustomIconButton extends StatelessWidget {
               text,
               style: TextStyle(
                   color: textColor ?? Colors.black,
-                  fontSize: 16.0,
-                  fontFamily: "GTWalsheimPro"),
+                  fontSize: 16.0
+                  ),
             ),
           ],
         ),

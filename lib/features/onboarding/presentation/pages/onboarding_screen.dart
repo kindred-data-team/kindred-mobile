@@ -101,7 +101,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: Text(
                     "Let's Start!",
                     style: TextStyle(
-                      fontFamily: "GTWalsheimPro",
                       color: AppColors.primaryColor,
                       fontSize: 23.px,
                     ),
