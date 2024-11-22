@@ -4,6 +4,16 @@ enum Routes {
     name: 'home',
   ),
 
+  authScreen(
+    path: '/authScreen',
+    name: 'authScreen',
+  ),
+
+  onboardingScreen(
+    path: '/onboardingScreen',
+    name: 'onboardingScreen',
+  ),
+
   productViewPage(path: '/product', name: 'product');
 
   final String path;
@@ -15,4 +25,6 @@ enum Routes {
 
   String asSubPath() => path.replaceAll('/', '');
   String addParams(String? params) => '$path/:$params';
+
+
 }
