@@ -30,6 +30,11 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+**/generated/**
+**/*.config.dart
+**/*.g.dart
+**/*.auto_mappr.dart
+**/*.gen.dart
 
 # Symbolication related
 app.*.symbols
@@ -44,3 +49,6 @@ app.*.map.json
 
 # FVM Version Cache
 .fvm/
+
+# Env
+.secrets/
