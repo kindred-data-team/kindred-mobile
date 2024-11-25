@@ -5,4 +5,5 @@ abstract final class AppColors {
   static const primaryColor = Color(0XFF9E4379);
   static const secondaryColorOne = Color(0XFFF3ECE3);
   static const greyColor = Color(0XFFE0E0E0);
+  static const inactiveTextfield = Color(0XFFBDBDBD);
 }

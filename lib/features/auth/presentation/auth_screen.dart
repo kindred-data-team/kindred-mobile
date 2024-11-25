@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kindred_mobile/common/constants/assets.dart';
 import 'package:kindred_mobile/common/theme/theme_colors.dart';
 import 'package:kindred_mobile/features/auth/widgets/custom_icon_button.dart';
@@ -23,6 +24,7 @@ class AuthScreen extends StatelessWidget {
         Image.asset(
           Assets.authOnboarding,
           width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.5,
           fit: BoxFit.fill,
         ),
         const SizedBox(height: 40),
@@ -50,8 +52,11 @@ class AuthScreen extends StatelessWidget {
         CustomIconButton(
           text: "Email",
           logo: Image.asset(Assets.emailLogo),
-          onPressed: () {},
+          onPressed: () {
+            context.go('/loginScreen');
+          },
         ),
+        const Spacer(),
         Padding(
           padding: const EdgeInsets.all(40),
           child: RichText(
