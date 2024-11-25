@@ -22,7 +22,7 @@ class ProductListCard extends StatelessWidget {
               ),
               elevation: 10,
               shadowColor: Colors.black,
-              color: AppColors.primary,
+              color: AppColors.primaryColor,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -54,7 +54,7 @@ class ProductListCard extends StatelessWidget {
                           Text(
                             product.title ?? '',
                             style:
-                                const TextStyle(color: AppColors.textColor, fontSize: 18, fontWeight: FontWeight.w600),
+                                const TextStyle(color: AppColors.primaryColor, fontSize: 18, fontWeight: FontWeight.w600),
                           ),
                           const Spacer(),
                           Row(
@@ -62,13 +62,13 @@ class ProductListCard extends StatelessWidget {
                               Text(
                                 '\$${product.price?.toString() ?? ''}',
                                 style: const TextStyle(
-                                    color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                                    color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                               ),
                               const Spacer(),
                               Text(
                                 'Stock:${product.stock?.toString() ?? ''}',
                                 style: const TextStyle(
-                                    color: AppColors.textColor, fontSize: 12, fontWeight: FontWeight.w600),
+                                    color: AppColors.primaryColor, fontSize: 12, fontWeight: FontWeight.w600),
                               ),
                             ],
                           ),
@@ -86,7 +86,7 @@ class ProductListCard extends StatelessWidget {
               child: Container(
                 width: 65,
                 height: 20,
-                color: AppColors.secondary,
+                color: AppColors.secondaryColorOne,
                 child: Center(
                   child: Text(
                     '${product.discountPercentage}% OFF',

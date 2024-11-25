@@ -17,7 +17,7 @@ class _ProductTitleCardState extends State<ProductTitleCard> {
         height: 150,
         width: double.infinity,
         child: Card(
-          color: AppColors.primary,
+          color: AppColors.primaryColor,
           elevation: 10,
           shadowColor: Colors.black,
           semanticContainer: true,
@@ -37,12 +37,12 @@ class _ProductTitleCardState extends State<ProductTitleCard> {
                       width: 230,
                       child: Text(
                         widget.product?.title ?? '',
-                        style: const TextStyle(color: AppColors.textColor, fontSize: 20, fontWeight: FontWeight.w600),
+                        style: const TextStyle(color: AppColors.primaryColor, fontSize: 20, fontWeight: FontWeight.w600),
                       ),
                     ),
                     Text(
                       '\$${widget.product?.price.toString() ?? ''}',
-                      style: const TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                      style: const TextStyle(color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -54,12 +54,12 @@ class _ProductTitleCardState extends State<ProductTitleCard> {
                       width: 200,
                       child: Text(
                         "Brand:${widget.product?.brand ?? ''}",
-                        style: const TextStyle(color: AppColors.textColor, fontSize: 16, fontWeight: FontWeight.w600),
+                        style: const TextStyle(color: AppColors.primaryColor, fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                     ),
                     Text(
                       '${widget.product?.stock ?? ''} in stock',
-                      style: const TextStyle(color: AppColors.secondary, fontSize: 14, fontWeight: FontWeight.w600),
+                      style: const TextStyle(color: AppColors.secondaryColorOne, fontSize: 14, fontWeight: FontWeight.w600),
                     ),
                   ],
                 )

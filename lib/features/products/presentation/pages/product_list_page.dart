@@ -105,13 +105,13 @@ class _ProductListViewState extends State<ProductListPage> {
                         },
                         child: const Icon(
                           Icons.arrow_back_ios_rounded,
-                          color: AppColors.secondary,
+                          color: AppColors.secondaryColorOne,
                         ),
                       ),
                       const SizedBox(width: 16),
                       Text(
                         '$currentPage',
-                        style: const TextStyle(color: AppColors.secondary, fontSize: 20, fontWeight: FontWeight.bold),
+                        style: const TextStyle(color: AppColors.secondaryColorOne, fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(width: 16),
                       ElevatedButton(
@@ -120,7 +120,7 @@ class _ProductListViewState extends State<ProductListPage> {
                         },
                         child: const Icon(
                           Icons.arrow_forward_ios_rounded,
-                          color: AppColors.secondary,
+                          color: AppColors.secondaryColorOne,
                         ),
                       ),
                     ],

@@ -42,6 +42,9 @@ dependencies:
   logger: ^2.4.0
   json_annotation: ^4.9.0
   cupertino_icons: ^1.0.8
+  smooth_page_indicator: ^1.2.0+3
+  responsive_sizer: ^3.3.1
+  flutter_svg: ^2.0.15
  
 dev_dependencies:
   flutter_test:
@@ -55,12 +58,15 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  fonts:
-  - family: GTWalsheim
-    fonts:
-      - asset: assets/fonts/GTWalsheimPro-Regular.ttf
   assets:
     - assets/images/
+  fonts:
+    - family: Louize
+      fonts:
+        - asset: assets/fonts/Louize.ttf
+    - family: GTWalsheimPro
+      fonts:
+        - asset: assets/fonts/GTWalsheimPro-Regular.ttf
 
 flutter_intl:
   enabled: true
