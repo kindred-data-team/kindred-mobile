@@ -1,4 +1,4 @@
-name: kindred_mobile
+name: kindred_app
 description: ""
 publish_to: 'none'
 version: 1.0.0+1
@@ -16,17 +16,17 @@ scripts:
     dev: fvm flutter run -d chrome --dart-define-from-file=".secrets/dev.json"
     stg: fvm flutter run -d chrome --dart-define-from-file=".secrets/stg.json"
     prod: fvm flutter run -d chrome --dart-define-from-file=".secrets/prod.json"
-  build: 
+  build:
     apk:
       dev: fvm flutter build apk --release --dart-define-from-file=".secrets/dev.json"
       stg: fvm flutter build apk --release --dart-define-from-file=".secrets/stg.json"
       prod: fvm flutter build apk --release --dart-define-from-file=".secrets/stg.json"
-    aab: 
+    aab:
       dev: fvm flutter build appbundle --dart-define-from-file=".secrets/dev.json"
       stg: fvm flutter build appbundle --dart-define-from-file=".secrets/stg.json"
       prod: fvm flutter build appbundle --dart-define-from-file=".secrets/prod.json"
-  
-      
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -45,7 +45,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   responsive_sizer: ^3.3.1
   flutter_svg: ^2.0.15
- 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

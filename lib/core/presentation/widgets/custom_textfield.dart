@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
+import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomTextField extends StatefulWidget {

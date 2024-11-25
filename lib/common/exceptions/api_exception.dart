@@ -1,5 +1,5 @@
-import 'package:kindred_mobile/common/exceptions/base_exception.dart';
-import 'package:kindred_mobile/common/utils/json_convertible.dart';
+import 'package:kindred_app/common/exceptions/base_exception.dart';
+import 'package:kindred_app/common/utils/json_convertible.dart';
 
 class ApiException extends JsonConvertible implements BaseException {
   final String message;

@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/core/presentation/widgets/leading_button.dart';
-import 'package:kindred_mobile/features/products/bloc/single_product/single_product_bloc.dart';
-import 'package:kindred_mobile/features/products/bloc/single_product/single_product_event.dart';
-import 'package:kindred_mobile/features/products/bloc/single_product/single_product_state.dart';
-import 'package:kindred_mobile/features/products/presentation/widgets/product_description.dart';
-import 'package:kindred_mobile/features/products/presentation/widgets/product_title_card.dart';
+import 'package:kindred_app/common/theme/theme_colors.dart';
+import 'package:kindred_app/core/presentation/widgets/leading_button.dart';
+import 'package:kindred_app/features/doctor/products/bloc/single_product/single_product_bloc.dart';
+import 'package:kindred_app/features/doctor/products/bloc/single_product/single_product_event.dart';
+import 'package:kindred_app/features/doctor/products/bloc/single_product/single_product_state.dart';
+import 'package:kindred_app/features/doctor/products/presentation/widgets/product_description.dart';
+import 'package:kindred_app/features/doctor/products/presentation/widgets/product_title_card.dart';
 
 class SingleProductPage extends StatefulWidget {
   final int id;
+
   const SingleProductPage({super.key, required this.id});
 
   @override
@@ -55,7 +56,8 @@ class _SingleProductPageState extends State<SingleProductPage> {
         }
         if (state is SingleProductLoadedState) {
           return Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 50),
+            padding:
+                const EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 50),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +98,10 @@ class _SingleProductPageState extends State<SingleProductPage> {
                             child: Center(
                               child: Text(
                                 '${state.product?.discountPercentage}% OFF',
-                                style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
                           )),

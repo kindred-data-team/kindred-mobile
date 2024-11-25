@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/features/onboarding/presentation/pages/screen_one.dart';
-import 'package:kindred_mobile/features/onboarding/presentation/pages/screen_three.dart';
-import 'package:kindred_mobile/features/onboarding/presentation/pages/screen_two.dart';
-import 'package:kindred_mobile/features/onboarding/presentation/widgets/circular_arrow.dart';
+import 'package:kindred_app/common/theme/theme_colors.dart';
+import 'package:kindred_app/features/onboarding/presentation/pages/screen_one.dart';
+import 'package:kindred_app/features/onboarding/presentation/pages/screen_three.dart';
+import 'package:kindred_app/features/onboarding/presentation/pages/screen_two.dart';
+import 'package:kindred_app/features/onboarding/presentation/widgets/circular_arrow.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

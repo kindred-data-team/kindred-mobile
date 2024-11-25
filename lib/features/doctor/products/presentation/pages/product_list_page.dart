@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kindred_mobile/common/constants/routes.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/features/products/bloc/product_list/product_list_bloc.dart';
-import 'package:kindred_mobile/features/products/bloc/product_list/product_list_event.dart';
-import 'package:kindred_mobile/features/products/bloc/product_list/product_list_state.dart';
-import 'package:kindred_mobile/features/products/presentation/widgets/product_list_card.dart';
+import 'package:kindred_app/common/constants/routes.dart';
+import 'package:kindred_app/common/theme/theme_colors.dart';
+import 'package:kindred_app/features/doctor/products/bloc/product_list/product_list_bloc.dart';
+import 'package:kindred_app/features/doctor/products/bloc/product_list/product_list_event.dart';
+import 'package:kindred_app/features/doctor/products/bloc/product_list/product_list_state.dart';
+import 'package:kindred_app/features/doctor/products/presentation/widgets/product_list_card.dart';
 
 class ProductListPage extends StatefulWidget {
   const ProductListPage({super.key});
@@ -21,6 +21,7 @@ class _ProductListViewState extends State<ProductListPage> {
   late int currentPage;
   int itemsPerPage = 10;
   int skip = 1;
+
   @override
   void initState() {
     super.initState();
@@ -89,7 +90,8 @@ class _ProductListViewState extends State<ProductListPage> {
                               "${Routes.productViewPage.path}/${state.products![index].id}",
                             );
                           },
-                          child: ProductListCard(product: state.products![index]),
+                          child:
+                              ProductListCard(product: state.products![index]),
                         );
                       },
                       itemCount: state.products!.length),
@@ -111,7 +113,10 @@ class _ProductListViewState extends State<ProductListPage> {
                       const SizedBox(width: 16),
                       Text(
                         '$currentPage',
-                        style: const TextStyle(color: AppColors.secondaryColorOne, fontSize: 20, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            color: AppColors.secondaryColorOne,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(width: 16),
                       ElevatedButton(

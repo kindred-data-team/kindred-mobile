@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
-import 'package:kindred_mobile/features/products/data/models/product_list_model.dart';
+import 'package:kindred_app/common/theme/theme_colors.dart';
+import 'package:kindred_app/features/doctor/products/data/models/product_list_model.dart';
 
 class ProductListCard extends StatelessWidget {
   final ProductsListModel product;
+
   const ProductListCard({super.key, required this.product});
 
   @override
@@ -28,8 +29,9 @@ class ProductListCard extends StatelessWidget {
                 children: [
                   //Image
                   Container(
-                    decoration:
-                        const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20))),
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
                     height: double.infinity,
                     width: 120,
                     child: Center(
@@ -53,8 +55,10 @@ class ProductListCard extends StatelessWidget {
                         children: [
                           Text(
                             product.title ?? '',
-                            style:
-                                const TextStyle(color: AppColors.primaryColor, fontSize: 18, fontWeight: FontWeight.w600),
+                            style: const TextStyle(
+                                color: AppColors.primaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
                           ),
                           const Spacer(),
                           Row(
@@ -62,13 +66,17 @@ class ProductListCard extends StatelessWidget {
                               Text(
                                 '\$${product.price?.toString() ?? ''}',
                                 style: const TextStyle(
-                                    color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
+                                    color: AppColors.secondaryColorOne,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
                               ),
                               const Spacer(),
                               Text(
                                 'Stock:${product.stock?.toString() ?? ''}',
                                 style: const TextStyle(
-                                    color: AppColors.primaryColor, fontSize: 12, fontWeight: FontWeight.w600),
+                                    color: AppColors.primaryColor,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
                               ),
                             ],
                           ),
@@ -90,7 +98,10 @@ class ProductListCard extends StatelessWidget {
                 child: Center(
                   child: Text(
                     '${product.discountPercentage}% OFF',
-                    style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               )),

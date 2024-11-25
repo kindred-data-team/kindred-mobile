@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:kindred_mobile/core/data/api/logging_interceptor.dart';
+import 'package:kindred_app/core/data/api/logging_interceptor.dart';
 import 'package:logger/logger.dart';
 
 class ApiModule {

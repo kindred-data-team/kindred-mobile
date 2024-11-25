@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kindred_mobile/core/presentation/widgets/custom_button.dart';
+import 'package:kindred_app/core/presentation/widgets/custom_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ForgotPasswordSuccessScreen extends StatelessWidget {

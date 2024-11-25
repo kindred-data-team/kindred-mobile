@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
+import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomIconButton extends StatelessWidget {
@@ -45,10 +45,8 @@ class CustomIconButton extends StatelessWidget {
             SizedBox(width: spacing ?? 10),
             Text(
               text,
-              style: TextStyle(
-                  color: textColor ?? Colors.black,
-                  fontSize: 16.0
-                  ),
+              style:
+                  TextStyle(color: textColor ?? Colors.black, fontSize: 16.0),
             ),
           ],
         ),

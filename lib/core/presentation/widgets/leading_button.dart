@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kindred_mobile/common/theme/theme_colors.dart';
+import 'package:kindred_app/common/theme/theme_colors.dart';
 
 class LeadingButton extends StatefulWidget {
   const LeadingButton({super.key});
@@ -17,7 +17,9 @@ class LeadingButtonState extends State<LeadingButton> {
         context.pop();
       },
       child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: AppColors.secondaryColorOne),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: AppColors.secondaryColorOne),
         child: const Padding(
           padding: EdgeInsets.all(5.0),
           child: Icon(

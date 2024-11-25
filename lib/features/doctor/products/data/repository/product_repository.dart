@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:kindred_mobile/common/exceptions/api_exception.dart';
-import 'package:kindred_mobile/core/data/resources/data_state.dart';
-import 'package:kindred_mobile/features/products/data/models/product_list_model.dart';
-import 'package:kindred_mobile/features/products/data/models/single_products_model.dart';
-import 'package:kindred_mobile/features/products/data/service/products_service.dart';
+import 'package:kindred_app/common/exceptions/api_exception.dart';
+import 'package:kindred_app/core/data/resources/data_state.dart';
+import 'package:kindred_app/features/doctor/products/data/models/product_list_model.dart';
+import 'package:kindred_app/features/doctor/products/data/models/single_products_model.dart';
+import 'package:kindred_app/features/doctor/products/data/service/products_service.dart';
 
 class ProductRepository {
   final _provider = ProductsService();
@@ -38,7 +38,8 @@ class ProductRepository {
     try {
       final response = await _provider.getSingleProduct(id);
       if (response.statusCode == HttpStatus.ok) {
-        SingleProductsModel res = SingleProductsModel.fromJson(response.data as Map<String, dynamic>);
+        SingleProductsModel res =
+            SingleProductsModel.fromJson(response.data as Map<String, dynamic>);
 
         return DataSuccess(res);
       } else {

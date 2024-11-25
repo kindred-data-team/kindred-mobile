@@ -1,4 +1,4 @@
-import 'package:kindred_mobile/common/exceptions/api_exception.dart';
+import 'package:kindred_app/common/exceptions/api_exception.dart';
 
 abstract class DataState<T> {
   final T? data;
@@ -12,5 +12,5 @@ class DataSuccess<T> extends DataState<T> {
 }
 
 class DataFailed<T> extends DataState<T> {
-  const DataFailed(ApiException exeption) : super(exception: exeption);
+  const DataFailed(ApiException exception) : super(exception: exception);
 }

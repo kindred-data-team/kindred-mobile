@@ -1,12 +1,12 @@
 import 'package:go_router/go_router.dart';
-import 'package:kindred_mobile/common/constants/routes.dart';
-import 'package:kindred_mobile/features/auth/presentation/auth_screen.dart';
-import 'package:kindred_mobile/features/forgot_password/presentation/pages/forgot_password_confirmation_screen.dart';
-import 'package:kindred_mobile/features/forgot_password/presentation/pages/forgot_password_reset_password_screen.dart';
-import 'package:kindred_mobile/features/forgot_password/presentation/pages/forgot_password_success_screen.dart';
-import 'package:kindred_mobile/features/login/presentation/pages/login_screen.dart';
-import 'package:kindred_mobile/features/onboarding/presentation/pages/onboarding_screen.dart';
-import 'package:kindred_mobile/features/products/presentation/pages/product_list_page.dart';
+import 'package:kindred_app/common/constants/routes.dart';
+import 'package:kindred_app/features/auth/presentation/auth_screen.dart';
+import 'package:kindred_app/features/doctor/products/presentation/pages/product_list_page.dart';
+import 'package:kindred_app/features/forgot_password/presentation/pages/forgot_password_confirmation_screen.dart';
+import 'package:kindred_app/features/forgot_password/presentation/pages/forgot_password_reset_password_screen.dart';
+import 'package:kindred_app/features/forgot_password/presentation/pages/forgot_password_success_screen.dart';
+import 'package:kindred_app/features/login/presentation/pages/login_screen.dart';
+import 'package:kindred_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 
 class AppRouter {
   AppRouter();

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:kindred_mobile/core/data/api/api.dart';
+import 'package:kindred_app/core/data/api/api.dart';
 
 class ProductsService {
   Future<Response> getAllProducts(final int limit, final int skip) async {
