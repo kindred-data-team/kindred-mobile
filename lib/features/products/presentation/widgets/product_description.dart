@@ -12,7 +12,7 @@ class ProductDescriptionCard extends StatelessWidget {
         height: 470,
         width: double.infinity,
         child: Card(
-          color: AppColors.primary,
+          color: AppColors.primaryColor,
           elevation: 10,
           shadowColor: Colors.black,
           semanticContainer: true,
@@ -26,7 +26,7 @@ class ProductDescriptionCard extends StatelessWidget {
               children: [
                 const Text(
                   'Item Description',
-                  style: TextStyle(color: AppColors.secondary, fontSize: 20, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondaryColorOne, fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 10,
@@ -34,7 +34,7 @@ class ProductDescriptionCard extends StatelessWidget {
                 //Desc
                 const Text(
                   '• Description',
-                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
@@ -53,7 +53,7 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Category',
-                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
@@ -68,7 +68,7 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Dimensions (mm)',
-                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
@@ -83,7 +83,7 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Warranty Information',
-                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
@@ -98,7 +98,7 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Shipping Information',
-                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
@@ -113,7 +113,7 @@ class ProductDescriptionCard extends StatelessWidget {
                 ),
                 const Text(
                   '• Return Policy',
-                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontWeight: FontWeight.w600),
+                  style: TextStyle(color: AppColors.secondaryColorOne, fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 const SizedBox(
                   height: 5,
