@@ -27,6 +27,10 @@ enum Routes {
     path: '/forgotPasswordSuccessScreen',
     name: 'forgotPasswordSuccessScreen',
   ),
+  registrationScreen(
+    path: '/registrationScreen',
+    name: 'registrationScreen',
+  ),
   productViewPage(path: '/product', name: 'product');
 
   final String path;

@@ -1,11 +1,12 @@
 import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/constants/routes.dart';
+import 'package:kindred_app/features/auth/forgot_password/presentation/pages/forgot_password_confirmation_screen.dart';
+import 'package:kindred_app/features/auth/forgot_password/presentation/pages/forgot_password_reset_password_screen.dart';
+import 'package:kindred_app/features/auth/forgot_password/presentation/pages/forgot_password_success_screen.dart';
+import 'package:kindred_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:kindred_app/features/auth/presentation/auth_screen.dart';
+import 'package:kindred_app/features/auth/register/presentation/pages/registration_screen.dart';
 import 'package:kindred_app/features/doctor/products/presentation/pages/product_list_page.dart';
-import 'package:kindred_app/features/forgot_password/presentation/pages/forgot_password_confirmation_screen.dart';
-import 'package:kindred_app/features/forgot_password/presentation/pages/forgot_password_reset_password_screen.dart';
-import 'package:kindred_app/features/forgot_password/presentation/pages/forgot_password_success_screen.dart';
-import 'package:kindred_app/features/login/presentation/pages/login_screen.dart';
 import 'package:kindred_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 
 class AppRouter {
@@ -60,6 +61,13 @@ class AppRouter {
       path: Routes.forgotPasswordSuccessScreen.path,
       pageBuilder: (context, state) => const NoTransitionPage(
         child: ForgotPasswordSuccessScreen(),
+      ),
+    ),
+    GoRoute(
+      name: Routes.registrationScreen.name,
+      path: Routes.registrationScreen.path,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: RegistrationScreen(),
       ),
     ),
   ]);

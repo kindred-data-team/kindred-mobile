@@ -91,7 +91,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(color: Colors.black)),
                 TextSpan(
                     text: " Sign Up",
-                    recognizer: TapGestureRecognizer()..onTap = () async {},
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        context.go('/registrationScreen');
+                      },
                     style: const TextStyle(color: AppColors.primaryColor)),
               ],
             ),

@@ -23,7 +23,7 @@ class _ForgotPasswordConfirmationScreenState
         backgroundColor: Colors.white,
         leading: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            context.go('/loginScreen');
           },
           child: const Icon(
             Icons.arrow_back,
