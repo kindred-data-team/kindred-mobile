@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
-import 'package:kindred_app/core/presentation/widgets/custom_button.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
+import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -116,7 +116,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
           ),
-          CustomButton(label: "Create an account", onPressed: () {}),
+          GlobalButton(label: "Create an account", onPressed: () {}),
           const Spacer(),
           RichText(
             textAlign: TextAlign.center,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kindred_app/core/presentation/widgets/custom_button.dart';
+import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ForgotPasswordSuccessScreen extends StatelessWidget {
@@ -32,7 +32,7 @@ class ForgotPasswordSuccessScreen extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          CustomButton(label: "Go to Home", onPressed: () {}),
+          GlobalButton(label: "Go to Home", onPressed: () {}),
         ],
       ),
     );
