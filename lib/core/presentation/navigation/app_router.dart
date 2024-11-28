@@ -6,6 +6,8 @@ import 'package:kindred_app/features/auth/forgot_password/presentation/pages/for
 import 'package:kindred_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:kindred_app/features/auth/presentation/auth_screen.dart';
 import 'package:kindred_app/features/auth/register/presentation/pages/registration_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homepage.dart';
+import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homescreen.dart';
 import 'package:kindred_app/features/doctor/products/presentation/pages/product_list_page.dart';
 import 'package:kindred_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 
@@ -68,6 +70,20 @@ class AppRouter {
       path: Routes.registrationScreen.path,
       pageBuilder: (context, state) => const NoTransitionPage(
         child: RegistrationScreen(),
+      ),
+    ),
+    GoRoute(
+      name: Routes.homeScreen.name,
+      path: Routes.homeScreen.path,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: HomeScreen(),
+      ),
+    ),
+    GoRoute(
+      name: Routes.homePage.name,
+      path: Routes.homePage.path,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: HomePage(),
       ),
     ),
   ]);

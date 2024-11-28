@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class CustomButton extends StatelessWidget {
+class GlobalButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
 
-  const CustomButton({
+  const GlobalButton({
     super.key,
     required this.label,
     required this.onPressed,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kindred_app/core/presentation/widgets/custom_button.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
+import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ForgotPasswordConfirmationScreen extends StatefulWidget {
@@ -74,7 +74,7 @@ class _ForgotPasswordConfirmationScreenState
           const SizedBox(
             height: 40,
           ),
-          CustomButton(
+          GlobalButton(
               label: "Submit",
               onPressed: () {
                 context.go('/forgotPasswordResetPasswordScreen');
