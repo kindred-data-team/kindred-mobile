@@ -6,6 +6,7 @@ abstract final class AppColors {
   static const secondaryColorOne = Color(0XFFF3ECE3);
   static const greyColor = Color(0XFFE0E0E0);
   static const inactiveTextfield = Color(0XFFBDBDBD);
+  static const dividerColor = Color(0XFF828282);
   static const cardColor = Color.fromARGB(
     175,
     240,

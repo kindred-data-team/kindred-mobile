@@ -6,8 +6,11 @@ import 'package:kindred_app/features/auth/forgot_password/presentation/pages/for
 import 'package:kindred_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:kindred_app/features/auth/presentation/auth_screen.dart';
 import 'package:kindred_app/features/auth/register/presentation/pages/registration_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/bookings_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/details_screen.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homepage.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homescreen.dart';
+import 'package:kindred_app/features/doctor/homescreen/presentation/pages/notification_screen.dart';
 import 'package:kindred_app/features/doctor/products/presentation/pages/product_list_page.dart';
 import 'package:kindred_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 
@@ -84,6 +87,31 @@ class AppRouter {
       path: Routes.homePage.path,
       pageBuilder: (context, state) => const NoTransitionPage(
         child: HomePage(),
+      ),
+    ),
+    GoRoute(
+      name: Routes.notificationScreen.name,
+      path: Routes.notificationScreen.path,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: NotificationScreen(),
+      ),
+    ),
+    GoRoute(
+      name: Routes.bookingsScreen.name,
+      path: Routes.bookingsScreen.path,
+      pageBuilder: (context, state) => const NoTransitionPage(
+        child: BookingsScreen(),
+      ),
+    ),
+    GoRoute(
+      name: Routes.detailsScreen.name,
+      path: Routes.detailsScreen.addParams('productId'),
+      pageBuilder: (context, state) => NoTransitionPage(
+        child: DetailScreen(
+          name: state.pathParameters['name'] ?? "",
+          consultationType: state.pathParameters['consultationType'] ?? "",
+          time: state.pathParameters['time'] ?? "",
+        ),
       ),
     ),
   ]);

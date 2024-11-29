@@ -13,16 +13,17 @@ class CustomTextField extends StatefulWidget {
   final IconData? prefixIcon;
   final List<TextInputFormatter>? inputFormatters;
 
-  const CustomTextField(
-      {super.key,
-      this.labelText,
-      this.hintText,
-      this.controller,
-      this.keyboardType = TextInputType.text,
-      required this.obscureText,
-      this.validator,
-      this.prefixIcon,
-      this.inputFormatters});
+  const CustomTextField({
+    super.key,
+    this.labelText,
+    this.hintText,
+    this.controller,
+    this.keyboardType = TextInputType.text,
+    required this.obscureText,
+    this.validator,
+    this.prefixIcon,
+    this.inputFormatters,
+  });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
