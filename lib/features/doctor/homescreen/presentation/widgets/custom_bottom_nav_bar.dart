@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/details_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/bookings_screen.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homepage.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
@@ -20,8 +20,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     const Text(
       'Index 1: Calendar',
     ),
-    //const BookingsScreen(),
-    const DetailScreen(name: "test", consultationType: "test", time: "test"),
+    const BookingsScreen(),
+    //const DetailScreen(name: "test", consultationType: "test", time: "test"),
     const Text(
       'Index 3: Chat',
     ),

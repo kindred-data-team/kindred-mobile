@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kindred_app/common/constants/assets.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PatientDetailsScreen extends StatefulWidget {
   const PatientDetailsScreen({super.key});
@@ -17,7 +18,8 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
   }
 
   _buildBody(context) {
-    return SingleChildScrollView(
+    return Padding(
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,17 +38,21 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
           const SizedBox(
             height: 20,
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "First Name",
-                    style: TextStyle(color: AppColors.primaryColor),
+                    style: TextStyle(
+                        color: AppColors.primaryColor, fontSize: 14.px),
                   ),
-                  Text("Kristine"),
+                  Text(
+                    "Kristine",
+                    style: TextStyle(fontSize: 18.px),
+                  ),
                 ],
               ),
               Column(
@@ -54,27 +60,35 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                 children: [
                   Text(
                     "Last Name",
-                    style: TextStyle(color: AppColors.primaryColor),
+                    style: TextStyle(
+                        color: AppColors.primaryColor, fontSize: 14.px),
                   ),
-                  Text("Jackson"),
+                  Text(
+                    "Jackson",
+                    style: TextStyle(fontSize: 18.px),
+                  ),
                 ],
               )
             ],
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Sex",
-                    style: TextStyle(color: AppColors.primaryColor),
+                    style: TextStyle(
+                        color: AppColors.primaryColor, fontSize: 14.px),
                   ),
-                  Text("Female"),
+                  Text(
+                    "Female",
+                    style: TextStyle(fontSize: 18.px),
+                  ),
                 ],
               ),
               Column(
@@ -82,19 +96,21 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                 children: [
                   Text(
                     "Age",
-                    style: TextStyle(color: AppColors.primaryColor),
+                    style: TextStyle(
+                        color: AppColors.primaryColor, fontSize: 14.px),
                   ),
-                  Text("34"),
+                  Text(
+                    "34",
+                    style: TextStyle(fontSize: 18.px),
+                  ),
                 ],
               ),
             ],
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          const Spacer(),
           const Divider(),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Align(
               alignment: Alignment.center,

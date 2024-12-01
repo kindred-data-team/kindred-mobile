@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_concern_screen.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_details_screen.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/booking_type_widget.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/consultation_bottomsheet.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -111,42 +113,57 @@ class _DetailScreenState extends State<DetailScreen> {
               const SizedBox(
                 height: 20,
               ),
-              TabBar(
-                tabAlignment: TabAlignment.start,
-                indicator: const UnderlineTabIndicator(
-                  borderSide: BorderSide(
-                    width: 2.0,
-                    color: AppColors.primaryColor,
-                  ),
-                ),
-                labelPadding: const EdgeInsets.only(left: 15, right: 20),
-                dividerColor: Colors.transparent,
-                padding: EdgeInsets.zero,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.black,
-                isScrollable: true,
-                tabs: [
-                  Tab(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Patient's Details",
-                        style: TextStyle(
-                          fontSize: 16.px,
-                          fontWeight: FontWeight.w400,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  TabBar(
+                    tabAlignment: TabAlignment.start,
+                    indicator: const UnderlineTabIndicator(
+                      borderSide: BorderSide(
+                        width: 2.0,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                    labelPadding: const EdgeInsets.only(left: 15, right: 20),
+                    dividerColor: Colors.transparent,
+                    padding: EdgeInsets.zero,
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.black,
+                    isScrollable: true,
+                    tabs: [
+                      Tab(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Patient's Details",
+                            style: TextStyle(
+                              fontSize: 16.px,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  Tab(
-                    child: Text(
-                      "Patient's Concern",
-                      style: TextStyle(
-                        fontSize: 16.px,
-                        fontWeight: FontWeight.w400,
+                      Tab(
+                        child: Text(
+                          "Patient's Concern",
+                          style: TextStyle(
+                            fontSize: 16.px,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
+                  InkWell(
+                      onTap: () {
+                        consultationBottomSheet(context: context);
+                      },
+                      child: const Icon(
+                        Icons.more_vert,
+                        color: AppColors.primaryColor,
+                        size: 30,
+                      )),
                 ],
               ),
               const SizedBox(
@@ -156,7 +173,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: TabBarView(
                   children: [
                     PatientDetailsScreen(),
-                    PatientDetailsScreen(),
+                    PatientConcernScreen(),
                   ],
                 ),
               ),
