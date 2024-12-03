@@ -1,9 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
+import 'package:kindred_app/features/auth/bloc/auth_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -19,12 +21,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
+  late AuthBloc _authBloc;
+
+  @override
+  void initState() {
+    _authBloc = AuthBloc();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _buildBody(context),
+    return BlocProvider(
+      create: (context) => AuthBloc(),
+      child: Scaffold(
+        body: Center(
+          child: _buildBody(context),
+        ),
       ),
     );
   }
@@ -90,8 +102,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             obscureText: false,
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 30, top: 40, right: 30, bottom: 40),
+            padding: const EdgeInsets.only(left: 30, top: 40, right: 30, bottom: 40),
             child: RichText(
               textAlign: TextAlign.left,
               text: TextSpan(
@@ -99,15 +110,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   fontSize: 11.px,
                 ),
                 children: <TextSpan>[
-                  const TextSpan(
-                      text: "By signing up, you agree to our",
-                      style: TextStyle(color: Colors.black)),
+                  const TextSpan(text: "By signing up, you agree to our", style: TextStyle(color: Colors.black)),
                   TextSpan(
                       text: " Terms & Conditions",
                       recognizer: TapGestureRecognizer()..onTap = () async {},
                       style: const TextStyle(color: AppColors.primaryColor)),
-                  const TextSpan(
-                      text: " and", style: TextStyle(color: Colors.black)),
+                  const TextSpan(text: " and", style: TextStyle(color: Colors.black)),
                   TextSpan(
                       text: " Privacy Policy",
                       recognizer: TapGestureRecognizer()..onTap = () async {},
@@ -116,7 +124,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
           ),
-          GlobalButton(label: "Create an account", onPressed: () {}),
+          BlocConsumer<AuthBloc, AuthState>(
+            listener: (context, state) {
+              if (state is AuthLoginSuccess) {
+                //Navigate to home
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Login Successful: ${state.message}')),
+                );
+              }
+              if (state is AuthFailure) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Login Failed: ${state.error}')),
+                );
+              }
+            },
+            builder: (context, state) {
+              return GlobalButton(
+                  label: "Create an account",
+                  onPressed: () {
+                    _authBloc.add(UserRegisterEvent(
+                        firstName: firstName.text,
+                        lastName: lastName.text,
+                        email: email.text,
+                        password: password.text,
+                        confirmPassword: confirmPassword.text));
+                  });
+            },
+          ),
           const Spacer(),
           RichText(
             textAlign: TextAlign.center,
@@ -125,9 +159,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 fontSize: 13.px,
               ),
               children: <TextSpan>[
-                const TextSpan(
-                    text: "Already have an account?",
-                    style: TextStyle(color: Colors.black)),
+                const TextSpan(text: "Already have an account?", style: TextStyle(color: Colors.black)),
                 TextSpan(
                     text: " Log In",
                     recognizer: TapGestureRecognizer()

@@ -1,9 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
+import 'package:kindred_app/features/auth/bloc/auth_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,12 +18,21 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  late AuthBloc _authBloc;
+  @override
+  void initState() {
+    _authBloc = AuthBloc();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _buildBody(context),
+    return BlocProvider(
+      create: (context) => _authBloc,
+      child: Scaffold(
+        body: Center(
+          child: _buildBody(context),
+        ),
       ),
     );
   }
@@ -77,11 +88,28 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(
             height: 40,
           ),
-          GlobalButton(
-              label: "Log In",
-              onPressed: () {
-                context.go('/homeScreen');
-              }),
+          BlocConsumer<AuthBloc, AuthState>(
+            listener: (context, state) {
+              if (state is AuthLoginSuccess) {
+                //Navigate to home
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Login Successful: ${state.message}')),
+                );
+              }
+              if (state is AuthFailure) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Login Failed: ${state.error}')),
+                );
+              }
+            },
+            builder: (context, state) {
+              return GlobalButton(
+                  label: "Log In",
+                  onPressed: () {
+                    _authBloc.add(UserLoginEvent(email: emailController.text, password: passwordController.text));
+                  });
+            },
+          ),
           const Spacer(),
           RichText(
             textAlign: TextAlign.center,
@@ -90,9 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontSize: 13.px,
               ),
               children: <TextSpan>[
-                const TextSpan(
-                    text: "Don’t have an account?",
-                    style: TextStyle(color: Colors.black)),
+                const TextSpan(text: "Don’t have an account?", style: TextStyle(color: Colors.black)),
                 TextSpan(
                     text: " Sign Up",
                     recognizer: TapGestureRecognizer()
