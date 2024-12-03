@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/widgets/next_consultation_card.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/widgets/todays_schedule_card.dart';
@@ -20,7 +21,9 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                context.go('/notificationScreen');
+              },
               icon: const Icon(
                 Icons.notifications,
               )),

@@ -39,6 +39,26 @@ enum Routes {
     path: '/homePage',
     name: 'homePage',
   ),
+  notificationScreen(
+    path: '/notificationScreen',
+    name: 'notificationScreen',
+  ),
+  bookingsScreen(
+    path: '/bookingsScreen',
+    name: 'bookingsScreen',
+  ),
+  upcomingScreen(
+    path: '/upcomingScreen',
+    name: 'upcomingScreen',
+  ),
+  completedScreen(
+    path: '/completedScreen',
+    name: 'completedScreen',
+  ),
+  detailsScreen(
+    path: '/detailsScreen',
+    name: 'detailsScreen',
+  ),
   productViewPage(path: '/product', name: 'product');
 
   final String path;

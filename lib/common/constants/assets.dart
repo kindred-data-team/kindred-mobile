@@ -12,4 +12,7 @@ class Assets {
   static const String googleLogo = "assets/images/google.png";
   static const String appleLogo = "assets/images/apple.png";
   static const String emailLogo = "assets/images/email.png";
+
+  //notification
+  static const String notifLogo = "assets/images/notif_logo.png";
 }
