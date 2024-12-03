@@ -17,8 +17,7 @@ import 'package:kindred_app/features/onboarding/presentation/pages/onboarding_sc
 class AppRouter {
   AppRouter();
 
-  static final goRouter =
-      GoRouter(initialLocation: Routes.onboardingScreen.path, routes: [
+  static final goRouter = GoRouter(initialLocation: Routes.onboardingScreen.path, routes: [
     GoRoute(
       name: Routes.home.name,
       path: Routes.home.path,
@@ -40,6 +39,50 @@ class AppRouter {
         child: AuthScreen(), // temp
       ),
     ),
+    //  GoRoute(
+    //   name: Routes.authScreen.name,
+    //   path: Routes.authScreen.path,
+    //   pageBuilder: (context, state) => const NoTransitionPage(
+    //     child: AuthScreen(), // temp
+    //   ),
+    //   routes: <RouteBase>[
+    //     GoRoute(
+    //       path: Routes.loginScreen.path,
+    //       name: Routes.loginScreen.name,
+    //       pageBuilder: (context, state) => const NoTransitionPage(
+    //         child: LoginScreen(),
+    //       ),
+    //     ),
+    //     GoRoute(
+    //       name: Routes.forgotPasswordConfirmationScreen.name,
+    //       path: Routes.forgotPasswordConfirmationScreen.path,
+    //       pageBuilder: (context, state) => const NoTransitionPage(
+    //         child: ForgotPasswordConfirmationScreen(),
+    //       ),
+    //     ),
+    //     GoRoute(
+    //       name: Routes.forgotPasswordResetPasswordScreen.name,
+    //       path: Routes.forgotPasswordResetPasswordScreen.path,
+    //       pageBuilder: (context, state) => const NoTransitionPage(
+    //         child: ForgotPasswordResetPasswordScreen(),
+    //       ),
+    //     ),
+    //     GoRoute(
+    //       name: Routes.forgotPasswordSuccessScreen.name,
+    //       path: Routes.forgotPasswordSuccessScreen.path,
+    //       pageBuilder: (context, state) => const NoTransitionPage(
+    //         child: ForgotPasswordSuccessScreen(),
+    //       ),
+    //     ),
+    //     GoRoute(
+    //       name: Routes.registrationScreen.name,
+    //       path: Routes.registrationScreen.path,
+    //       pageBuilder: (context, state) => const NoTransitionPage(
+    //         child: RegistrationScreen(),
+    //       ),
+    //     ),
+    //   ],
+    // ),
     GoRoute(
       name: Routes.loginScreen.name,
       path: Routes.loginScreen.path,
