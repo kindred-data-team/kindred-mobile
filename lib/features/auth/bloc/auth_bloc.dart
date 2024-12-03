@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
-import 'package:kindred_app/common/exceptions/api_exception.dart';
 import 'package:kindred_app/core/data/resources/data_state.dart';
 import 'package:kindred_app/features/auth/data/repository/auth_repository.dart';
 
@@ -18,7 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final AuthRepository authRepository = AuthRepository();
     final dataState = await authRepository.loginUser(event.email, event.password);
     if (dataState is DataSuccess && dataState.data != null) {
-      emit(AuthLoginSuccess(dataState.data!.data));
+      emit(AuthLoginSuccess(dataState.data!.statusMessage ?? 'success'));
     }
     if (dataState is DataFailed) {
       print('failed');
@@ -31,7 +30,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final dataState = await authRepository.registerUser(
         event.firstName, event.lastName, event.email, event.password, event.confirmPassword);
     if (dataState is DataSuccess && dataState.data != null) {
-      emit(AuthLoginSuccess(dataState.data!.data));
+      emit(AuthLoginSuccess(dataState.data!.statusMessage ?? 'success'));
     }
     if (dataState is DataFailed) {
       print('failed');

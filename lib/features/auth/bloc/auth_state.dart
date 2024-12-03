@@ -30,7 +30,7 @@ class AuthRegisterSuccess extends AuthState {
 
 class AuthFailure extends AuthState {
   final String error;
-  final ApiException? exception;
+  final DioException? exception;
   const AuthFailure(this.error, this.exception);
 
   @override

@@ -11,20 +11,12 @@ import 'package:kindred_app/features/doctor/homescreen/bookings/pages/details_sc
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homepage.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homescreen.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/notification_screen.dart';
-import 'package:kindred_app/features/doctor/products/presentation/pages/product_list_page.dart';
 import 'package:kindred_app/features/onboarding/presentation/pages/onboarding_screen.dart';
 
 class AppRouter {
   AppRouter();
 
   static final goRouter = GoRouter(initialLocation: Routes.onboardingScreen.path, routes: [
-    GoRoute(
-      name: Routes.home.name,
-      path: Routes.home.path,
-      pageBuilder: (context, state) => const NoTransitionPage(
-        child: ProductListPage(),
-      ),
-    ),
     GoRoute(
       name: Routes.onboardingScreen.name,
       path: Routes.onboardingScreen.path,

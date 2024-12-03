@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
@@ -92,9 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
             listener: (context, state) {
               if (state is AuthLoginSuccess) {
                 //Navigate to home
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Login Successful: ${state.message}')),
-                );
+                context.go(Routes.homeScreen.path);
               }
               if (state is AuthFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(
