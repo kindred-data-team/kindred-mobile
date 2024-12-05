@@ -50,6 +50,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                   final upcoming = upcomingSample[index];
                   return InkWell(
                     onTap: () {
+                      print("test");
                       context.go(
                         '/detailsScreen',
                         extra: {

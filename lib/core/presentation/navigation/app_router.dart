@@ -18,19 +18,21 @@ class AppRouter {
 
   static final goRouter = GoRouter(initialLocation: Routes.onboardingScreen.path, routes: [
     GoRoute(
-      name: Routes.onboardingScreen.name,
-      path: Routes.onboardingScreen.path,
-      pageBuilder: (context, state) => const NoTransitionPage(
-        child: OnboardingPage(),
-      ),
-    ),
-    GoRoute(
-      name: Routes.authScreen.name,
-      path: Routes.authScreen.path,
-      pageBuilder: (context, state) => const NoTransitionPage(
-        child: AuthScreen(), // temp
-      ),
-    ),
+        name: Routes.onboardingScreen.name,
+        path: Routes.onboardingScreen.path,
+        pageBuilder: (context, state) => const NoTransitionPage(
+              child: OnboardingPage(),
+            ),
+        routes: <RouteBase>[
+          GoRoute(
+            name: Routes.authScreen.name,
+            path: Routes.authScreen.path,
+            pageBuilder: (context, state) => const NoTransitionPage(
+              child: AuthScreen(), // temp
+            ),
+          ),
+        ]),
+
     //  GoRoute(
     //   name: Routes.authScreen.name,
     //   path: Routes.authScreen.path,

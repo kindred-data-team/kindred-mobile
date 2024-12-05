@@ -5,11 +5,13 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class GlobalButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
+  bool? isLoading;
 
-  const GlobalButton({
+  GlobalButton({
     super.key,
     required this.label,
     required this.onPressed,
+    this.isLoading,
   });
 
   @override
@@ -26,10 +28,17 @@ class GlobalButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: Text(
-          label,
-          style: TextStyle(fontSize: 16.px),
-        ),
+        child: isLoading ?? false
+            ? SizedBox(
+                height: 16.px,
+                width: 16.px,
+                child: const CircularProgressIndicator(
+                  color: Colors.white,
+                ))
+            : Text(
+                label,
+                style: TextStyle(fontSize: 16.px),
+              ),
       ),
     );
   }

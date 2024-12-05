@@ -1,38 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
+import 'package:kindred_app/features/auth/bloc/auth_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ForgotPasswordConfirmationScreen extends StatefulWidget {
   const ForgotPasswordConfirmationScreen({super.key});
 
   @override
-  State<ForgotPasswordConfirmationScreen> createState() =>
-      _ForgotPasswordConfirmationScreenState();
+  State<ForgotPasswordConfirmationScreen> createState() => _ForgotPasswordConfirmationScreenState();
 }
 
-class _ForgotPasswordConfirmationScreenState
-    extends State<ForgotPasswordConfirmationScreen> {
+class _ForgotPasswordConfirmationScreenState extends State<ForgotPasswordConfirmationScreen> {
   final TextEditingController emailController = TextEditingController();
+  late AuthBloc _authBloc;
+  bool isLoading = false;
+
+  @override
+  void initState() {
+    _authBloc = AuthBloc();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
-            context.go('/loginScreen');
-          },
-          child: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+    return BlocProvider(
+      create: (context) => _authBloc,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          leading: InkWell(
+            onTap: () {
+              context.push('/loginScreen');
+              //use enum
+            },
+            child: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
           ),
         ),
-      ),
-      body: Center(
-        child: _buildBody(context),
+        body: Center(
+          child: _buildBody(context),
+        ),
       ),
     );
   }
@@ -74,11 +87,41 @@ class _ForgotPasswordConfirmationScreenState
           const SizedBox(
             height: 40,
           ),
-          GlobalButton(
-              label: "Submit",
-              onPressed: () {
-                context.go('/forgotPasswordResetPasswordScreen');
-              }),
+          BlocConsumer<AuthBloc, AuthState>(
+            listener: (context, state) {
+              if (state is AuthInitial) {
+                setState(() {
+                  isLoading = true;
+                });
+              }
+              if (state is AuthForgotPasswordSuccess) {
+                setState(() {
+                  isLoading = false;
+                });
+
+                context.go(Routes.forgotPasswordResetPasswordScreen.path);
+              }
+              if (state is AuthFailure) {
+                setState(() {
+                  isLoading = false;
+                });
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Failed: ${state.error}')),
+                );
+              }
+            },
+            builder: (context, state) {
+              return GlobalButton(
+                  label: "Submit",
+                  isLoading: isLoading,
+                  onPressed: () {
+                    setState(() {
+                      isLoading = true;
+                    });
+                    _authBloc.add(ForgotPasswordRequestEvent(email: emailController.text));
+                  });
+            },
+          ),
         ],
       ),
     );

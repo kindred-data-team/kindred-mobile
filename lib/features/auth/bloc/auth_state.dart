@@ -28,11 +28,20 @@ class AuthRegisterSuccess extends AuthState {
   List<Object> get props => [message];
 }
 
+class AuthForgotPasswordSuccess extends AuthState {
+  final String message;
+
+  const AuthForgotPasswordSuccess(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
 class AuthFailure extends AuthState {
   final String error;
-  final DioException? exception;
+  final ApiException? exception;
   const AuthFailure(this.error, this.exception);
 
   @override
-  List<Object> get props => [error, exception ?? DioException(requestOptions: RequestOptions(data: []))];
+  List<Object> get props => [error, exception ?? const ApiException(message: 'Error')];
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/features/onboarding/presentation/pages/screen_one.dart';
 import 'package:kindred_app/features/onboarding/presentation/pages/screen_three.dart';
@@ -96,7 +97,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               if (_currentPage == 2)
                 TextButton(
                   onPressed: () {
-                    context.go('/authScreen');
+                    context.goNamed(Routes.authScreen.name);
                   },
                   child: Text(
                     "Let's Start!",

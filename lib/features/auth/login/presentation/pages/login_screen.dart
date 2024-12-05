@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   late AuthBloc _authBloc;
+  bool isLoading = false;
   @override
   void initState() {
     _authBloc = AuthBloc();
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.topRight,
             child: TextButton(
               onPressed: () {
-                context.go('/forgotPasswordConfirmationScreen');
+                context.push('/forgotPasswordConfirmationScreen');
               },
               child: Text(
                 "Forgot Password?",
@@ -91,11 +92,23 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           BlocConsumer<AuthBloc, AuthState>(
             listener: (context, state) {
+              if (state is AuthInitial) {
+                setState(() {
+                  isLoading = true;
+                });
+              }
               if (state is AuthLoginSuccess) {
+                setState(() {
+                  isLoading = false;
+                });
+
                 //Navigate to home
                 context.go(Routes.homeScreen.path);
               }
               if (state is AuthFailure) {
+                setState(() {
+                  isLoading = false;
+                });
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Login Failed: ${state.error}')),
                 );
@@ -104,12 +117,18 @@ class _LoginScreenState extends State<LoginScreen> {
             builder: (context, state) {
               return GlobalButton(
                   label: "Log In",
+                  isLoading: isLoading,
                   onPressed: () {
+                    setState(() {
+                      isLoading = true;
+                    });
+
                     _authBloc.add(UserLoginEvent(email: emailController.text, password: passwordController.text));
                   });
             },
           ),
           const Spacer(),
+          //create a widget for this
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
@@ -123,6 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         context.go('/registrationScreen');
+                        //use Routes enum
                       },
                     style: const TextStyle(color: AppColors.primaryColor)),
               ],
