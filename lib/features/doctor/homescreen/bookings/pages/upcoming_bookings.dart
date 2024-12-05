@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/search_widget.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/upcoming_list_tile.dart';
 
-class CompletedScreen extends StatefulWidget {
-  const CompletedScreen({super.key});
+class UpcomingBookings extends StatefulWidget {
+  const UpcomingBookings({super.key});
 
   @override
-  State<CompletedScreen> createState() => _CompletedScreenState();
+  State<UpcomingBookings> createState() => _UpcomingBookingsState();
 }
 
-class _CompletedScreenState extends State<CompletedScreen> {
+class _UpcomingBookingsState extends State<UpcomingBookings> {
   String searchQuery = "";
   final List<Map<String, String>> upcomingSample = [
     {
@@ -26,10 +28,6 @@ class _CompletedScreenState extends State<CompletedScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: _buildBody());
-  }
-
-  _buildBody() {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -51,10 +49,23 @@ class _CompletedScreenState extends State<CompletedScreen> {
                 itemCount: upcomingSample.length,
                 itemBuilder: (context, index) {
                   final upcoming = upcomingSample[index];
-                  return UpcomingListTile(
-                    name: upcoming['name'] ?? "",
-                    consultationType: upcoming['consultationType'] ?? "",
-                    time: upcoming['time']!,
+                  return InkWell(
+                    onTap: () {
+                      print("test");
+                      context.goNamed(
+                        Routes.bookingDetails.name,
+                        extra: {
+                          'name': upcoming['name']!,
+                          'consultationType': upcoming['consultationType']!,
+                          'time': upcoming['time']!,
+                        },
+                      );
+                    },
+                    child: UpcomingListTile(
+                      name: upcoming['name']!,
+                      consultationType: upcoming['consultationType']!,
+                      time: upcoming['time']!,
+                    ),
                   );
                 },
               ),

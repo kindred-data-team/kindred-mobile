@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/constants/assets.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/features/auth/widgets/custom_icon_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -53,7 +54,7 @@ class AuthScreen extends StatelessWidget {
           text: "Email",
           logo: Image.asset(Assets.emailLogo),
           onPressed: () {
-            context.go('/loginScreen');
+            context.goNamed(Routes.loginScreen.name);
           },
         ),
         const Spacer(),

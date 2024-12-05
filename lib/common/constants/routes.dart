@@ -15,17 +15,17 @@ enum Routes {
     path: '/loginScreen',
     name: 'loginScreen',
   ),
-  forgotPasswordConfirmationScreen(
-    path: '/forgotPasswordConfirmationScreen',
-    name: 'forgotPasswordConfirmationScreen',
+  passwordConfirmation(
+    path: '/passwordConfirmation',
+    name: 'passwordConfirmation',
   ),
-  forgotPasswordResetPasswordScreen(
-    path: '/forgotPasswordResetPasswordScreen',
-    name: 'forgotPasswordResetPasswordScreen',
+  resetPassword(
+    path: '/resetPassword',
+    name: 'resetPassword',
   ),
-  forgotPasswordSuccessScreen(
-    path: '/forgotPasswordSuccessScreen',
-    name: 'forgotPasswordSuccessScreen',
+  forgotPasswordSuccess(
+    path: '/forgotPasswordSuccess',
+    name: 'forgotPasswordSuccess',
   ),
   registrationScreen(
     path: '/registrationScreen',
@@ -47,17 +47,17 @@ enum Routes {
     path: '/bookingsScreen',
     name: 'bookingsScreen',
   ),
-  upcomingScreen(
-    path: '/upcomingScreen',
-    name: 'upcomingScreen',
+  upcomingBookings(
+    path: '/upcomingBookings',
+    name: 'upcomingBookings',
   ),
-  completedScreen(
-    path: '/completedScreen',
-    name: 'completedScreen',
+  completedBookings(
+    path: '/completedBookings',
+    name: 'completedBookings',
   ),
-  detailsScreen(
-    path: '/detailsScreen',
-    name: 'detailsScreen',
+  bookingDetails(
+    path: '/bookingDetails',
+    name: 'bookingDetails',
   ),
   productViewPage(path: '/product', name: 'product');
 

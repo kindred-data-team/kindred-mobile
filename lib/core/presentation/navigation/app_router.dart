@@ -1,13 +1,13 @@
 import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/constants/routes.dart';
-import 'package:kindred_app/features/auth/forgot_password/presentation/pages/forgot_password_confirmation_screen.dart';
-import 'package:kindred_app/features/auth/forgot_password/presentation/pages/forgot_password_reset_password_screen.dart';
-import 'package:kindred_app/features/auth/forgot_password/presentation/pages/forgot_password_success_screen.dart';
+import 'package:kindred_app/features/auth/forgot_password/presentation/pages/forgot_password_success.dart';
+import 'package:kindred_app/features/auth/forgot_password/presentation/pages/password_confirmation.dart';
+import 'package:kindred_app/features/auth/forgot_password/presentation/pages/reset_password.dart';
 import 'package:kindred_app/features/auth/login/presentation/pages/login_screen.dart';
 import 'package:kindred_app/features/auth/presentation/auth_screen.dart';
 import 'package:kindred_app/features/auth/register/presentation/pages/registration_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/booking_details.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/pages/bookings_screen.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/details_screen.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homepage.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homescreen.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/notification_screen.dart';
@@ -85,24 +85,24 @@ class AppRouter {
       ),
     ),
     GoRoute(
-      name: Routes.forgotPasswordConfirmationScreen.name,
-      path: Routes.forgotPasswordConfirmationScreen.path,
+      name: Routes.passwordConfirmation.name,
+      path: Routes.passwordConfirmation.path,
       pageBuilder: (context, state) => const NoTransitionPage(
-        child: ForgotPasswordConfirmationScreen(),
+        child: PasswordConfirmation(),
       ),
     ),
     GoRoute(
-      name: Routes.forgotPasswordResetPasswordScreen.name,
-      path: Routes.forgotPasswordResetPasswordScreen.path,
+      name: Routes.resetPassword.name,
+      path: Routes.resetPassword.path,
       pageBuilder: (context, state) => const NoTransitionPage(
-        child: ForgotPasswordResetPasswordScreen(),
+        child: ResetPassword(),
       ),
     ),
     GoRoute(
-      name: Routes.forgotPasswordSuccessScreen.name,
-      path: Routes.forgotPasswordSuccessScreen.path,
+      name: Routes.forgotPasswordSuccess.name,
+      path: Routes.forgotPasswordSuccess.path,
       pageBuilder: (context, state) => const NoTransitionPage(
-        child: ForgotPasswordSuccessScreen(),
+        child: ForgotPasswordSuccess(),
       ),
     ),
     GoRoute(
@@ -141,10 +141,10 @@ class AppRouter {
       ),
     ),
     GoRoute(
-      name: Routes.detailsScreen.name,
-      path: Routes.detailsScreen.addParams('productId'),
+      name: Routes.bookingDetails.name,
+      path: Routes.bookingDetails.addParams('productId'),
       pageBuilder: (context, state) => NoTransitionPage(
-        child: DetailScreen(
+        child: BookingDetails(
           name: state.pathParameters['name'] ?? "",
           consultationType: state.pathParameters['consultationType'] ?? "",
           time: state.pathParameters['time'] ?? "",

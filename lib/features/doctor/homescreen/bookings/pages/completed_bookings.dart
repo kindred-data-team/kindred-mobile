@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/search_widget.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/upcoming_list_tile.dart';
 
-class UpcomingScreen extends StatefulWidget {
-  const UpcomingScreen({super.key});
+class CompletedBookings extends StatefulWidget {
+  const CompletedBookings({super.key});
 
   @override
-  State<UpcomingScreen> createState() => _UpcomingScreenState();
+  State<CompletedBookings> createState() => _CompletedBookingsState();
 }
 
-class _UpcomingScreenState extends State<UpcomingScreen> {
+class _CompletedBookingsState extends State<CompletedBookings> {
   String searchQuery = "";
   final List<Map<String, String>> upcomingSample = [
     {
@@ -27,6 +26,10 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(body: _buildBody());
+  }
+
+  _buildBody() {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -48,23 +51,10 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                 itemCount: upcomingSample.length,
                 itemBuilder: (context, index) {
                   final upcoming = upcomingSample[index];
-                  return InkWell(
-                    onTap: () {
-                      print("test");
-                      context.go(
-                        '/detailsScreen',
-                        extra: {
-                          'name': upcoming['name']!,
-                          'consultationType': upcoming['consultationType']!,
-                          'time': upcoming['time']!,
-                        },
-                      );
-                    },
-                    child: UpcomingListTile(
-                      name: upcoming['name']!,
-                      consultationType: upcoming['consultationType']!,
-                      time: upcoming['time']!,
-                    ),
+                  return UpcomingListTile(
+                    name: upcoming['name'] ?? "",
+                    consultationType: upcoming['consultationType'] ?? "",
+                    time: upcoming['time']!,
                   );
                 },
               ),

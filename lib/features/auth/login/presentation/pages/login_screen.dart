@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.topRight,
             child: TextButton(
               onPressed: () {
-                context.push('/forgotPasswordConfirmationScreen');
+                context.push(Routes.passwordConfirmation.path);
               },
               child: Text(
                 "Forgot Password?",
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 });
 
                 //Navigate to home
-                context.go(Routes.homeScreen.path);
+                context.goNamed(Routes.homeScreen.name);
               }
               if (state is AuthFailure) {
                 setState(() {
@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
               }
             },
             builder: (context, state) {
-              return GlobalButton(
+              return DefaultButton(
                   label: "Log In",
                   isLoading: isLoading,
                   onPressed: () {
@@ -141,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: " Sign Up",
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        context.go('/registrationScreen');
+                        context.goNamed(Routes.registrationScreen.name);
                         //use Routes enum
                       },
                     style: const TextStyle(color: AppColors.primaryColor)),

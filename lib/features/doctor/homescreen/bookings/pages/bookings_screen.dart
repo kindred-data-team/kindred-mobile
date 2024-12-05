@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/completed_screen.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/upcoming_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/completed_bookings.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/upcoming_bookings.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class BookingsScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _BookingsScreenState extends State<BookingsScreen> {
           backgroundColor: Colors.white,
           leading: InkWell(
             onTap: () {
-              context.go('/homeScreen');
+              context.goNamed(Routes.homeScreen.name);
             },
             child: const Icon(
               Icons.arrow_back,
@@ -96,8 +97,8 @@ class _BookingsScreenState extends State<BookingsScreen> {
               const Expanded(
                 child: TabBarView(
                   children: [
-                    UpcomingScreen(),
-                    CompletedScreen(),
+                    UpcomingBookings(),
+                    CompletedBookings(),
                   ],
                 ),
               ),

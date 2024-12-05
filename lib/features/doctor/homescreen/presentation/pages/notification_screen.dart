@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/widgets/notification_list_tile.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -34,7 +35,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         backgroundColor: Colors.white,
         leading: InkWell(
           onTap: () {
-            context.go('/homeScreen');
+            context.goNamed(Routes.homeScreen.name);
           },
           child: const Icon(
             Icons.arrow_back,
@@ -53,10 +54,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       "Notifications",
-                      style: TextStyle(
-                          fontSize: 24.px,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "Louize"),
+                      style: TextStyle(fontSize: 24.px, fontWeight: FontWeight.w400, fontFamily: "Louize"),
                     ),
                   )),
               const SizedBox(

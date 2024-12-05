@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_concern_screen.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_details_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_concern.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_details.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/booking_type_widget.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/consultation_bottomsheet.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class DetailScreen extends StatefulWidget {
+class BookingDetails extends StatefulWidget {
   final String name;
   final String consultationType;
   final String time;
 
-  const DetailScreen({
+  const BookingDetails({
     super.key,
     required this.name,
     required this.consultationType,
@@ -19,10 +19,10 @@ class DetailScreen extends StatefulWidget {
   });
 
   @override
-  State<DetailScreen> createState() => _DetailScreenState();
+  State<BookingDetails> createState() => _BookingDetailsState();
 }
 
-class _DetailScreenState extends State<DetailScreen> {
+class _BookingDetailsState extends State<BookingDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: _buildBody(context));
@@ -70,8 +70,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       BookingTypeWidget(
                         child: Text(
                           "In-person",
-                          style: TextStyle(
-                              color: AppColors.primaryColor, fontSize: 12.px),
+                          style: TextStyle(color: AppColors.primaryColor, fontSize: 12.px),
                         ),
                       ),
                       const SizedBox(
@@ -172,8 +171,8 @@ class _DetailScreenState extends State<DetailScreen> {
               const Expanded(
                 child: TabBarView(
                   children: [
-                    PatientDetailsScreen(),
-                    PatientConcernScreen(),
+                    PatientDetails(),
+                    PatientConcern(),
                   ],
                 ),
               ),

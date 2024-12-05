@@ -129,7 +129,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             listener: (context, state) {
               if (state is AuthRegisterSuccess) {
                 //Navigate to home
-                context.go(Routes.homeScreen.path);
+                context.goNamed(Routes.homeScreen.name);
               }
               if (state is AuthFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -138,7 +138,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               }
             },
             builder: (context, state) {
-              return GlobalButton(
+              return DefaultButton(
                   label: "Create an account",
                   onPressed: () {
                     _authBloc.add(UserRegisterEvent(
@@ -163,7 +163,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     text: " Log In",
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        context.go('/loginScreen');
+                        context.goNamed(Routes.loginScreen.name);
                       },
                     style: const TextStyle(color: AppColors.primaryColor)),
               ],

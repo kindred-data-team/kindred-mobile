@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/widgets/next_consultation_card.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/widgets/todays_schedule_card.dart';
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                context.go('/notificationScreen');
+                context.goNamed(Routes.notificationScreen.name);
               },
               icon: const Icon(
                 Icons.notifications,
@@ -149,8 +150,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Row(
                               children: [
-                                const Icon(Icons.alarm,
-                                    color: AppColors.primaryColor),
+                                const Icon(Icons.alarm, color: AppColors.primaryColor),
                                 const SizedBox(
                                   width: 10,
                                 ),
@@ -169,8 +169,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Row(
                               children: [
-                                Text("9:00 - 10:00",
-                                    style: TextStyle(fontSize: 14.px)),
+                                Text("9:00 - 10:00", style: TextStyle(fontSize: 14.px)),
                               ],
                             ),
                             const SizedBox(
@@ -178,8 +177,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             Row(
                               children: [
-                                Text("11:00 - 12:00",
-                                    style: TextStyle(fontSize: 14.px)),
+                                Text("11:00 - 12:00", style: TextStyle(fontSize: 14.px)),
                               ],
                             ),
                           ],
@@ -195,15 +193,13 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Icon(Icons.alarm,
-                                color: AppColors.primaryColor),
+                            const Icon(Icons.alarm, color: AppColors.primaryColor),
                             const SizedBox(
                               width: 10,
                             ),
                             Row(
                               children: [
-                                Text("Afternoon",
-                                    style: TextStyle(fontSize: 16.px)),
+                                Text("Afternoon", style: TextStyle(fontSize: 16.px)),
                               ],
                             ),
                           ],
@@ -213,8 +209,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            Text("13:00 - 14:00",
-                                style: TextStyle(fontSize: 14.px)),
+                            Text("13:00 - 14:00", style: TextStyle(fontSize: 14.px)),
                           ],
                         ),
                         const SizedBox(
@@ -222,8 +217,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            Text("13:00 - 14:00",
-                                style: TextStyle(fontSize: 14.px)),
+                            Text("13:00 - 14:00", style: TextStyle(fontSize: 14.px)),
                           ],
                         ),
                       ],

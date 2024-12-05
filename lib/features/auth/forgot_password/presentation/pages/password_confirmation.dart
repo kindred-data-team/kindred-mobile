@@ -7,14 +7,14 @@ import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:kindred_app/features/auth/bloc/auth_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class ForgotPasswordConfirmationScreen extends StatefulWidget {
-  const ForgotPasswordConfirmationScreen({super.key});
+class PasswordConfirmation extends StatefulWidget {
+  const PasswordConfirmation({super.key});
 
   @override
-  State<ForgotPasswordConfirmationScreen> createState() => _ForgotPasswordConfirmationScreenState();
+  State<PasswordConfirmation> createState() => _PasswordConfirmationState();
 }
 
-class _ForgotPasswordConfirmationScreenState extends State<ForgotPasswordConfirmationScreen> {
+class _PasswordConfirmationState extends State<PasswordConfirmation> {
   final TextEditingController emailController = TextEditingController();
   late AuthBloc _authBloc;
   bool isLoading = false;
@@ -99,7 +99,7 @@ class _ForgotPasswordConfirmationScreenState extends State<ForgotPasswordConfirm
                   isLoading = false;
                 });
 
-                context.go(Routes.forgotPasswordResetPasswordScreen.path);
+                context.push(Routes.resetPassword.path);
               }
               if (state is AuthFailure) {
                 setState(() {
@@ -111,7 +111,7 @@ class _ForgotPasswordConfirmationScreenState extends State<ForgotPasswordConfirm
               }
             },
             builder: (context, state) {
-              return GlobalButton(
+              return DefaultButton(
                   label: "Submit",
                   isLoading: isLoading,
                   onPressed: () {

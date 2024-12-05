@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class GlobalButton extends StatelessWidget {
+class DefaultButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   bool? isLoading;
 
-  GlobalButton({
+  DefaultButton({
     super.key,
     required this.label,
     required this.onPressed,
@@ -34,6 +34,7 @@ class GlobalButton extends StatelessWidget {
                 width: 16.px,
                 child: const CircularProgressIndicator(
                   color: Colors.white,
+                  strokeWidth: 2,
                 ))
             : Text(
                 label,
