@@ -52,7 +52,7 @@ class _UpcomingBookingsState extends State<UpcomingBookings> {
                   return InkWell(
                     onTap: () {
                       print("test");
-                      context.goNamed(
+                      context.pushNamed(
                         Routes.bookingDetails.name,
                         extra: {
                           'name': upcoming['name']!,

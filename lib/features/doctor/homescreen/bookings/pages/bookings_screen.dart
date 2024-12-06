@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/pages/completed_bookings.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/pages/upcoming_bookings.dart';
@@ -25,15 +23,7 @@ class _BookingsScreenState extends State<BookingsScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          leading: InkWell(
-            onTap: () {
-              context.goNamed(Routes.homeScreen.name);
-            },
-            child: const Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            ),
-          ),
+          automaticallyImplyLeading: true,
         ),
         body: Padding(
           padding: const EdgeInsets.all(20),

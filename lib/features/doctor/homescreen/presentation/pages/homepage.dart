@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
-                context.goNamed(Routes.notificationScreen.name);
+                context.pushNamed(Routes.notificationScreen.name);
               },
               icon: const Icon(
                 Icons.notifications,

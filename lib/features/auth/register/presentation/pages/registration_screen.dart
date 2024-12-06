@@ -7,6 +7,7 @@ import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:kindred_app/features/auth/bloc/auth_bloc.dart';
+import 'package:kindred_app/features/auth/widgets/footer_text.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -151,24 +152,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             },
           ),
           const Spacer(),
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              style: TextStyle(
-                fontSize: 13.px,
-              ),
-              children: <TextSpan>[
-                const TextSpan(text: "Already have an account?", style: TextStyle(color: Colors.black)),
-                TextSpan(
-                    text: " Log In",
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        context.goNamed(Routes.loginScreen.name);
-                      },
-                    style: const TextStyle(color: AppColors.primaryColor)),
-              ],
-            ),
-          ),
+          FooterText(
+              plainText: "Already have an account?",
+              linkText: " Log In",
+              onLinkTap: () {
+                context.goNamed(Routes.loginScreen.name);
+              }),
         ],
       ),
     );

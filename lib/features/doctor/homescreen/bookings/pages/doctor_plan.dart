@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_concern.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/pages/patient_details.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/care_plan.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/review_screen.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/booking_type_widget.dart';
-import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/consultation_bottomsheet.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class BookingDetails extends StatefulWidget {
+class DoctorPlan extends StatefulWidget {
   final String name;
   final String consultationType;
   final String time;
 
-  const BookingDetails({
+  const DoctorPlan({
     super.key,
     required this.name,
     required this.consultationType,
@@ -19,10 +18,10 @@ class BookingDetails extends StatefulWidget {
   });
 
   @override
-  State<BookingDetails> createState() => _BookingDetailsState();
+  State<DoctorPlan> createState() => _DoctorPlanState();
 }
 
-class _BookingDetailsState extends State<BookingDetails> {
+class _DoctorPlanState extends State<DoctorPlan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: _buildBody(context));
@@ -34,7 +33,15 @@ class _BookingDetailsState extends State<BookingDetails> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          automaticallyImplyLeading: true,
+          leading: InkWell(
+            onTap: () {
+              context.go('/bookingsScreen');
+            },
+            child: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(20),
@@ -127,7 +134,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "Patient's Details",
+                            "Care Plan",
                             style: TextStyle(
                               fontSize: 16.px,
                               fontWeight: FontWeight.w400,
@@ -137,7 +144,7 @@ class _BookingDetailsState extends State<BookingDetails> {
                       ),
                       Tab(
                         child: Text(
-                          "Patient's Concern",
+                          "Review",
                           style: TextStyle(
                             fontSize: 16.px,
                             fontWeight: FontWeight.w400,
@@ -146,15 +153,6 @@ class _BookingDetailsState extends State<BookingDetails> {
                       ),
                     ],
                   ),
-                  InkWell(
-                      onTap: () {
-                        consultationBottomSheet(context: context);
-                      },
-                      child: const Icon(
-                        Icons.more_vert,
-                        color: AppColors.primaryColor,
-                        size: 30,
-                      )),
                 ],
               ),
               const SizedBox(
@@ -163,8 +161,8 @@ class _BookingDetailsState extends State<BookingDetails> {
               const Expanded(
                 child: TabBarView(
                   children: [
-                    PatientDetails(),
-                    PatientConcern(),
+                    CarePlan(),
+                    ReviewScreen(),
                   ],
                 ),
               ),

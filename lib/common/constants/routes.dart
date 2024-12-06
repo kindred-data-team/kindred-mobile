@@ -59,6 +59,15 @@ enum Routes {
     path: '/bookingDetails',
     name: 'bookingDetails',
   ),
+
+  doctorPlan(
+    path: '/doctorPlan',
+    name: 'doctorPlan',
+  ),
+  chatScreen(
+    path: '/chatScreen',
+    name: 'chatScreen',
+  ),
   productViewPage(path: '/product', name: 'product');
 
   final String path;

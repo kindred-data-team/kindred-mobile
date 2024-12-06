@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/widgets/notification_list_tile.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -33,15 +31,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
-            context.goNamed(Routes.homeScreen.name);
-          },
-          child: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-        ),
+        automaticallyImplyLeading: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),

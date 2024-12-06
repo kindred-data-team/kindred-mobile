@@ -1,12 +1,11 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kindred_app/common/constants/routes.dart';
-import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:kindred_app/features/auth/bloc/auth_bloc.dart';
+import 'package:kindred_app/features/auth/widgets/footer_text.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -79,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.topRight,
             child: TextButton(
               onPressed: () {
-                context.push(Routes.passwordConfirmation.path);
+                context.pushNamed(Routes.passwordConfirmation.name);
               },
               child: Text(
                 "Forgot Password?",
@@ -128,26 +127,12 @@ class _LoginScreenState extends State<LoginScreen> {
             },
           ),
           const Spacer(),
-          //create a widget for this
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              style: TextStyle(
-                fontSize: 13.px,
-              ),
-              children: <TextSpan>[
-                const TextSpan(text: "Don’t have an account?", style: TextStyle(color: Colors.black)),
-                TextSpan(
-                    text: " Sign Up",
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        context.goNamed(Routes.registrationScreen.name);
-                        //use Routes enum
-                      },
-                    style: const TextStyle(color: AppColors.primaryColor)),
-              ],
-            ),
-          ),
+          FooterText(
+              plainText: "Don't have an account?",
+              linkText: " Sign Up",
+              onLinkTap: () {
+                context.goNamed(Routes.registrationScreen.name);
+              }),
         ],
       ),
     );

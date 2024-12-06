@@ -32,16 +32,7 @@ class _PasswordConfirmationState extends State<PasswordConfirmation> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          leading: InkWell(
-            onTap: () {
-              context.push('/loginScreen');
-              //use enum
-            },
-            child: const Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            ),
-          ),
+          automaticallyImplyLeading: true,
         ),
         body: Center(
           child: _buildBody(context),
