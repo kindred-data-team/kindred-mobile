@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class ForgotPasswordSuccessScreen extends StatelessWidget {
-  const ForgotPasswordSuccessScreen({super.key});
+class ForgotPasswordSuccess extends StatelessWidget {
+  const ForgotPasswordSuccess({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class ForgotPasswordSuccessScreen extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          GlobalButton(label: "Go to Home", onPressed: () {}),
+          DefaultButton(label: "Go to Home", onPressed: () {}),
         ],
       ),
     );

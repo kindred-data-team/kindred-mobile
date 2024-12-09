@@ -10,11 +10,12 @@ class ApiModule {
   static Dio createDio(Logger logger, String baseUrl) {
     return Dio(
       BaseOptions(
-        connectTimeout: _connectionTimeOut,
-        receiveTimeout: _receiveTimeOut,
-        sendTimeout: _sendTimeOut,
-        baseUrl: baseUrl,
-      ),
+          connectTimeout: _connectionTimeOut,
+          receiveTimeout: _receiveTimeOut,
+          sendTimeout: _sendTimeOut,
+          baseUrl: baseUrl,
+          contentType: 'application/json',
+          headers: {"Accept": "application/json"}),
     )..interceptors.addAll([
         LoggingInterceptor(logger),
       ]);

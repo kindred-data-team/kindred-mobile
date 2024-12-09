@@ -4,14 +4,14 @@ import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class PatientDetailsScreen extends StatefulWidget {
-  const PatientDetailsScreen({super.key});
+class PatientDetails extends StatefulWidget {
+  const PatientDetails({super.key});
 
   @override
-  State<PatientDetailsScreen> createState() => _PatientDetailsScreenState();
+  State<PatientDetails> createState() => _PatientDetailsState();
 }
 
-class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
+class _PatientDetailsState extends State<PatientDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: _buildBody(context));
@@ -46,8 +46,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                 children: [
                   Text(
                     "First Name",
-                    style: TextStyle(
-                        color: AppColors.primaryColor, fontSize: 14.px),
+                    style: TextStyle(color: AppColors.primaryColor, fontSize: 14.px),
                   ),
                   Text(
                     "Kristine",
@@ -60,8 +59,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                 children: [
                   Text(
                     "Last Name",
-                    style: TextStyle(
-                        color: AppColors.primaryColor, fontSize: 14.px),
+                    style: TextStyle(color: AppColors.primaryColor, fontSize: 14.px),
                   ),
                   Text(
                     "Jackson",
@@ -82,8 +80,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                 children: [
                   Text(
                     "Sex",
-                    style: TextStyle(
-                        color: AppColors.primaryColor, fontSize: 14.px),
+                    style: TextStyle(color: AppColors.primaryColor, fontSize: 14.px),
                   ),
                   Text(
                     "Female",
@@ -96,8 +93,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                 children: [
                   Text(
                     "Age",
-                    style: TextStyle(
-                        color: AppColors.primaryColor, fontSize: 14.px),
+                    style: TextStyle(color: AppColors.primaryColor, fontSize: 14.px),
                   ),
                   Text(
                     "34",
@@ -112,9 +108,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
           const SizedBox(
             height: 10,
           ),
-          Align(
-              alignment: Alignment.center,
-              child: GlobalButton(label: "Join Call", onPressed: () {}))
+          Align(alignment: Alignment.center, child: DefaultButton(label: "Join Call", onPressed: () {}))
         ],
       ),
     );

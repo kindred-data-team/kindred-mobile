@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class ForgotPasswordResetPasswordScreen extends StatefulWidget {
-  const ForgotPasswordResetPasswordScreen({super.key});
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({super.key});
 
   @override
-  State<ForgotPasswordResetPasswordScreen> createState() =>
-      _ForgotPasswordResetPasswordScreenState();
+  State<ResetPassword> createState() => _ResetPasswordState();
 }
 
-class _ForgotPasswordResetPasswordScreenState
-    extends State<ForgotPasswordResetPasswordScreen> {
+class _ResetPasswordState extends State<ResetPassword> {
   final TextEditingController newPassController = TextEditingController();
   final TextEditingController confirmPassController = TextEditingController();
 
@@ -62,10 +61,10 @@ class _ForgotPasswordResetPasswordScreenState
           const SizedBox(
             height: 40,
           ),
-          GlobalButton(
+          DefaultButton(
               label: "Submit",
               onPressed: () {
-                context.go('/forgotPasswordSuccessScreen');
+                context.goNamed(Routes.forgotPasswordSuccess.name);
               }),
         ],
       ),

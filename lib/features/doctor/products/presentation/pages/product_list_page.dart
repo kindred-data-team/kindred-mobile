@@ -90,8 +90,7 @@ class _ProductListViewState extends State<ProductListPage> {
                               "${Routes.productViewPage.path}/${state.products![index].id}",
                             );
                           },
-                          child:
-                              ProductListCard(product: state.products![index]),
+                          child: ProductListCard(product: state.products![index]),
                         );
                       },
                       itemCount: state.products!.length),
@@ -114,9 +113,7 @@ class _ProductListViewState extends State<ProductListPage> {
                       Text(
                         '$currentPage',
                         style: const TextStyle(
-                            color: AppColors.secondaryColorOne,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                            color: AppColors.secondaryColorOne, fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(width: 16),
                       ElevatedButton(

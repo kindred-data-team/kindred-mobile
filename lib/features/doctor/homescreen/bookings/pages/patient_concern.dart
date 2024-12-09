@@ -3,14 +3,14 @@ import 'package:kindred_app/common/theme/theme_colors.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class PatientConcernScreen extends StatefulWidget {
-  const PatientConcernScreen({super.key});
+class PatientConcern extends StatefulWidget {
+  const PatientConcern({super.key});
 
   @override
-  State<PatientConcernScreen> createState() => _PatientConcernScreenState();
+  State<PatientConcern> createState() => _PatientConcernState();
 }
 
-class _PatientConcernScreenState extends State<PatientConcernScreen> {
+class _PatientConcernState extends State<PatientConcern> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: _buildBody(context));
@@ -50,9 +50,7 @@ class _PatientConcernScreenState extends State<PatientConcernScreen> {
           const SizedBox(
             height: 10,
           ),
-          Align(
-              alignment: Alignment.center,
-              child: GlobalButton(label: "Join Call", onPressed: () {}))
+          Align(alignment: Alignment.center, child: DefaultButton(label: "Join Call", onPressed: () {}))
         ],
       ),
     );

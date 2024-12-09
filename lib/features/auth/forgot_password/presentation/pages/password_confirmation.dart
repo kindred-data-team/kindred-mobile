@@ -5,21 +5,20 @@ import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/core/presentation/widgets/custom_textfield.dart';
 import 'package:kindred_app/core/presentation/widgets/default_button.dart';
 import 'package:kindred_app/features/auth/bloc/auth_bloc.dart';
-import 'package:kindred_app/features/auth/widgets/footer_text.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class PasswordConfirmation extends StatefulWidget {
+  const PasswordConfirmation({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<PasswordConfirmation> createState() => _PasswordConfirmationState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _PasswordConfirmationState extends State<PasswordConfirmation> {
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   late AuthBloc _authBloc;
   bool isLoading = false;
+
   @override
   void initState() {
     _authBloc = AuthBloc();
@@ -31,6 +30,10 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocProvider(
       create: (context) => _authBloc,
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: true,
+        ),
         body: Center(
           child: _buildBody(context),
         ),
@@ -44,47 +47,33 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Column(
         children: [
           const SizedBox(
-            height: 120,
+            height: 100,
           ),
           Align(
             alignment: Alignment.topLeft,
             child: Text(
-              "Sign In",
+              "Forgot Password",
               style: TextStyle(fontSize: 28.px),
             ),
           ),
           const SizedBox(
-            height: 100,
+            height: 50,
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              "We need to send a confirmation link to your registered email to verify that it’s you",
+              style: TextStyle(fontSize: 14.px),
+            ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
           CustomTextField(
             labelText: "Email",
             hintText: "Email",
             controller: emailController,
             obscureText: false,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          CustomTextField(
-            labelText: "Password",
-            hintText: "Password",
-            controller: passwordController,
-            obscureText: true,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: TextButton(
-              onPressed: () {
-                context.pushNamed(Routes.passwordConfirmation.name);
-              },
-              child: Text(
-                "Forgot Password?",
-                style: TextStyle(fontSize: 12.px, color: Colors.black),
-              ),
-            ),
           ),
           const SizedBox(
             height: 40,
@@ -96,43 +85,34 @@ class _LoginScreenState extends State<LoginScreen> {
                   isLoading = true;
                 });
               }
-              if (state is AuthLoginSuccess) {
+              if (state is AuthForgotPasswordSuccess) {
                 setState(() {
                   isLoading = false;
                 });
 
-                //Navigate to home
-                context.goNamed(Routes.homeScreen.name);
+                context.push(Routes.resetPassword.path);
               }
               if (state is AuthFailure) {
                 setState(() {
                   isLoading = false;
                 });
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Login Failed: ${state.error}')),
+                  SnackBar(content: Text('Failed: ${state.error}')),
                 );
               }
             },
             builder: (context, state) {
               return DefaultButton(
-                  label: "Log In",
+                  label: "Submit",
                   isLoading: isLoading,
                   onPressed: () {
                     setState(() {
                       isLoading = true;
                     });
-
-                    _authBloc.add(UserLoginEvent(email: emailController.text, password: passwordController.text));
+                    _authBloc.add(ForgotPasswordRequestEvent(email: emailController.text));
                   });
             },
           ),
-          const Spacer(),
-          FooterText(
-              plainText: "Don't have an account?",
-              linkText: " Sign Up",
-              onLinkTap: () {
-                context.goNamed(Routes.registrationScreen.name);
-              }),
         ],
       ),
     );

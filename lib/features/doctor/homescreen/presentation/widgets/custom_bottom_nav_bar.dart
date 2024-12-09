@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kindred_app/common/theme/theme_colors.dart';
+import 'package:kindred_app/features/doctor/chat/pages/chat_screen.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/pages/bookings_screen.dart';
+import 'package:kindred_app/features/doctor/homescreen/bookings/pages/doctor_plan.dart';
 import 'package:kindred_app/features/doctor/homescreen/presentation/pages/homepage.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
@@ -17,14 +19,12 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
 
   List<Widget> screens = <Widget>[
     const HomePage(),
-    const Text(
-      'Index 1: Calendar',
-    ),
+    // const Text(
+    //   'Index 1: Calendar',
+    // ),
+    const DoctorPlan(name: "Kai", consultationType: "OB", time: "Secret"),
     const BookingsScreen(),
-    //const DetailScreen(name: "test", consultationType: "test", time: "test"),
-    const Text(
-      'Index 3: Chat',
-    ),
+    const ChatScreen(),
   ];
 
   void _onItemTapped(int index) {

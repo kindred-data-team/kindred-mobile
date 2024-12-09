@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kindred_app/common/constants/routes.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/search_widget.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/upcoming_list_tile.dart';
 
-class UpcomingScreen extends StatefulWidget {
-  const UpcomingScreen({super.key});
+class UpcomingBookings extends StatefulWidget {
+  const UpcomingBookings({super.key});
 
   @override
-  State<UpcomingScreen> createState() => _UpcomingScreenState();
+  State<UpcomingBookings> createState() => _UpcomingBookingsState();
 }
 
-class _UpcomingScreenState extends State<UpcomingScreen> {
+class _UpcomingBookingsState extends State<UpcomingBookings> {
   String searchQuery = "";
   final List<Map<String, String>> upcomingSample = [
     {
@@ -50,8 +51,9 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                   final upcoming = upcomingSample[index];
                   return InkWell(
                     onTap: () {
-                      context.go(
-                        '/detailsScreen',
+                      print("test");
+                      context.pushNamed(
+                        Routes.bookingDetails.name,
                         extra: {
                           'name': upcoming['name']!,
                           'consultationType': upcoming['consultationType']!,

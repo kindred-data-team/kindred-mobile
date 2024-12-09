@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/search_widget.dart';
 import 'package:kindred_app/features/doctor/homescreen/bookings/widgets/upcoming_list_tile.dart';
 
-class CompletedScreen extends StatefulWidget {
-  const CompletedScreen({super.key});
+class CompletedBookings extends StatefulWidget {
+  const CompletedBookings({super.key});
 
   @override
-  State<CompletedScreen> createState() => _CompletedScreenState();
+  State<CompletedBookings> createState() => _CompletedBookingsState();
 }
 
-class _CompletedScreenState extends State<CompletedScreen> {
+class _CompletedBookingsState extends State<CompletedBookings> {
   String searchQuery = "";
   final List<Map<String, String>> upcomingSample = [
     {
