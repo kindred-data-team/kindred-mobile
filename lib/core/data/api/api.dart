@@ -4,6 +4,5 @@ import 'package:logger/logger.dart';
 
 abstract final class Api {
   static final logger = Logger();
-  static final dioOptions =
-      ApiModule.createDio(logger, EnvironmentVariables.appUrl);
+  static final dioOptions = ApiModule.createDio(logger, EnvironmentVariables.appUrl);
 }
